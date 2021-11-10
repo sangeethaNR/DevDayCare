@@ -82,7 +82,11 @@ physician : [
         },
     }
 ],
-isPottyTrained : true,
+isPottyTrained : 
+{
+    type: Boolean,
+    required:true
+},
 medications : [ 
     {
         medName : {
