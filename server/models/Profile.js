@@ -1,5 +1,5 @@
-const { Schema } = require('mongoose');
-
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const profileSchema = new Schema({
 
     name :{
@@ -103,6 +103,6 @@ medications : [
 })
 
 
-const Professor = model('Profile', professorSchema);
+const Profile = mongoose.model('Profile', profileSchema);
 
-module.exports = profileSchema;
+module.exports = Profile;
