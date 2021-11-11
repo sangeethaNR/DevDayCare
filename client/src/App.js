@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/NavBar';
+// import Home from './pages/Home';
+import PortfolioContainer from "./components/portfoliocontainer";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
@@ -29,9 +31,19 @@ const client = new ApolloClient({
 });
 
 
-
-
 function App() {
+
+  // make functionality into modal formatting (not current page)
+  // const [currentPage, setCurrentPage] = useState("Home");
+
+  // const renderPage = () => {
+  //   if (currentPage === "Home") {
+  //     return <Home />;
+  //   }
+  // }
+
+  // const handlePageChange = (page) => setCurrentPage(page);
+
   return (
     <ApolloProvider client={client}>
     <Router>
@@ -40,6 +52,7 @@ function App() {
         <Switch>
           <Route exact path='/'/>
         </Switch>
+        <PortfolioContainer />
       </>
     </Router>
     </ApolloProvider>
