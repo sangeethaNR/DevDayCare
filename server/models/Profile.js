@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const profileSchema = new Schema({
+const ProfileSchema = new Schema({
 
     name :{
         type :String,
@@ -102,11 +102,15 @@ medications : [
             required:true
         },
     }
-]
+],
+classAssigned:{
+    type: Schema.Types.ObjectId,
+    ref: 'ClassRoom'
+}
 
 })
 
 
-const Profile = mongoose.model('Profile', profileSchema);
+const Profile = mongoose.model('Profile', ProfileSchema);
 
 module.exports = Profile;
