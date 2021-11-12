@@ -9,9 +9,9 @@ import Typography from '@mui/material/Typography';
 
 function Home() {
     return (
-        <Card>
+        <Card style={{backgroundColor:"#FAF9F6"}}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div"style={{display:'flex', justifyContent: "center", color:"pink", fontSize:"5rem"}}>
+          <Typography gutterBottom variant="h5" component="div"style={{display:'flex', justifyContent: "center", color:"pink", fontSize:"5rem", fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>
             Blossom Babies
           </Typography>
           </CardContent>
@@ -23,7 +23,7 @@ function Home() {
           height="350px"
         />
         <CardActions style={{display:"flex", justifyContent:"center"}} >
-        <Button size="small" style={{color:'lightblue', fontSize:"2rem"}}>Contact Us</Button>
+        <Button size="small" style={{color:'lightblue', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>Contact Us</Button>
       </CardActions>
       </Card>
     );
