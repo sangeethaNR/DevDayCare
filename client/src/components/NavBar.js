@@ -12,8 +12,8 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='light' variant='light' expand='lg'>
-        <Container fluid>
+      <Navbar variant='light' expand='lg' className="brand">
+        <Container fluid style={{fontFamily:"Comic Sans Ms", fontSize:"1.3rem"}}>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
@@ -26,7 +26,7 @@ const AppNavbar = () => {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>Admin Portal</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
