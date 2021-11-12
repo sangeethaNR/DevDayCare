@@ -9,22 +9,34 @@ import Typography from '@mui/material/Typography';
 
 function Home() {
     return (
+        <React.Fragment>
         <Card style={{backgroundColor:"#FAF9F6"}}>
-        <CardContent style={{position:"absolute", top:"10%", left:"45%"}}>
-          <Typography gutterBottom variant="h5" component="div"style={{color:"#ff87ab", fontSize:"5rem", fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>
-            Learn. Grow. Love
+        <CardContent style={{position:"absolute", top:"36%", left:"42%"}}>
+          <Typography gutterBottom variant="h5" component="div"style={{color:"#ff758f", fontSize:"5rem", fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>
+            Learn. Grow. Love.
           </Typography>
           </CardContent>
           <CardMedia
           component="img"
           image={DayCare}
           alt="day care photo"
-          height="100%"
+          height="500px"
         />
         <CardActions style={{position:"absolute", left:"75%", top:".1%"}} >
         <Button size="small" style={{color:'#0096c7', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>contact us</Button>
       </CardActions>
+      </Card >
+      <Card style={{backgroundColor:"#fae0e4", borderTop:"1rem solid #FAF9F6", borderBottom:"1rem solid #FAF9F6"}}>
+      <CardContent style={{padding:"5rem"}}>
+        <Typography gutterBottom variant="h5" component="div" style={{color:'#0096c7', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>
+            About Us
+        </Typography>
+        <Typography variant="body2" color="text.secondary" style={{color:'#0096c7', fontSize:"1.5rem",fontFamily:"Comic Sans Ms"}}>
+          Blossom Babies is an application that allows your daycare to track its students and teachers effectively.  We made this app simple to use and easy to manage.  You will be able to report on the daily activities of each student so parents' minds are at ease.  
+        </Typography>
+        </CardContent>
       </Card>
+      </React.Fragment>
     );
   }
 
