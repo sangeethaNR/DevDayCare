@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PortfolioContainer() {
+function Dashboard() {
     return (
       <div>
         {}
@@ -8,4 +8,4 @@ function PortfolioContainer() {
     );
   }
 
-export default PortfolioContainer;
+export default Dashboard;
