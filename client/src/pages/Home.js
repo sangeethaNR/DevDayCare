@@ -10,20 +10,19 @@ import Typography from '@mui/material/Typography';
 function Home() {
     return (
         <Card style={{backgroundColor:"#FAF9F6"}}>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div"style={{display:'flex', justifyContent: "center", color:"pink", fontSize:"5rem", fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>
-            Blossom Babies
+        <CardContent style={{position:"absolute", top:"10%", left:"45%"}}>
+          <Typography gutterBottom variant="h5" component="div"style={{color:"#ff87ab", fontSize:"5rem", fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>
+            Learn. Grow. Love
           </Typography>
           </CardContent>
           <CardMedia
           component="img"
           image={DayCare}
           alt="day care photo"
-          style={{borderRadius:"3rem"}}
-          height="350px"
+          height="100%"
         />
-        <CardActions style={{display:"flex", justifyContent:"center"}} >
-        <Button size="small" style={{color:'lightblue', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>Contact Us</Button>
+        <CardActions style={{position:"absolute", left:"75%", top:".1%"}} >
+        <Button size="small" style={{color:'#0096c7', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>contact us</Button>
       </CardActions>
       </Card>
     );
