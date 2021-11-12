@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth'
 
@@ -11,14 +12,17 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='light' variant='light' expand='lg'>
         <Container fluid>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              {/* if user is logged in show saved books and logout */}
+              {/* if user is logged in show dashboard and logout */}
               {Auth.loggedIn() ? (
                 <>
+                  <Nav.Link as={Link} to='/dashboard'>
+                    Dashboard
+                  </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
