@@ -5,5 +5,6 @@ const IncidentReport = require('./IncidentReport');
 const ClassRoom = require('./ClassRooms');
 const Activity= require('./Activity');
 const Food = require('./Food');
+const Notes = require('./Notes');
 
-module.exports = { User,Profile,Photo,IncidentReport,ClassRoom,Activity,Food};
+module.exports = { User,Profile,Photo,IncidentReport,ClassRoom,Activity,Food,Notes};
