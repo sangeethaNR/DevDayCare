@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer'
 import Home from './pages/Home';
-import Dashboard from "./pages/adminDashboard";
+import adminDashboard from "./pages/adminDashboard";
+import teacherDashboard from "./pages/teacherDashboard";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Activities from './pages/Activities'
@@ -49,7 +50,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route exact path='/dashboard' component={Dashboard} />
+          <Route exact path='/adminDashboard' component={adminDashboard} />
+          <Route exact path='/teacherDashboard' component={teacherDashboard} />
           <Route exact path='/activities' component={Activities}/>
           <Route exact path='/profile' component={Profile}/>
             <Route exact path='/photos' component={Photos}/>
