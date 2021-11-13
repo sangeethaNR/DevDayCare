@@ -24,9 +24,8 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+console.log(userFormData)
     try {
-      const response = await loginUser(userFormData);
 
       const {data} = await loginUser({variables: {...userFormData}});
       console.log(data)
@@ -34,9 +33,6 @@ const LoginForm = () => {
         throw new Error('something went wrong!');
       }
 
-      const { token, user } = await response.json();
-      console.log(user);
-      console.log(token)
       Auth.login(data.login.token);
     } catch (err) {
       console.error(error);
