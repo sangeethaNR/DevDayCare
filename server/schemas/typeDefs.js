@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server-express');
-const {makeExecutableSchema} = require("graphql-tools")
+//const {makeExecutableSchema} = require("graphql-tools")
 
 const typeDefs = gql`
   ## Admin def

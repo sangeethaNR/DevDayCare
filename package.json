@@ -17,7 +17,6 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "graphql-tools": "^8.2.0",
     "mongoose": "^6.0.12"
   }
 }
