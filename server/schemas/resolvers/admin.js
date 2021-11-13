@@ -6,6 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       const foundUser = await User.findOne({_id: context.user._id})
+    
       if (!foundUser) {
         throw new AuthenticationError('Cannot find a user with this id!');
       }
