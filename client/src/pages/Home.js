@@ -32,7 +32,7 @@ function Home() {
             About Us
         </Typography>
         <Typography variant="body2" color="text.secondary" style={{color:'#0096c7', fontSize:"1.5rem",fontFamily:"Comic Sans Ms"}}>
-          Blossom Babies is an application that allows your daycare to track its students and teachers effectively.  We made this app simple to use and easy to manage.  You will be able to report on the daily activities of each student so parents' minds are at ease.  
+          Blossom Babies is an application that allows your daycare to track its students and teachers with ease.  The teacher will gather data on the daily activities of each student so parents' minds are at ease. 
         </Typography>
         </CardContent>
       </Card>
