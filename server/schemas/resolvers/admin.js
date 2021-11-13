@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
-const { signToken } = require('../utils/auth');
+const { User } = require('../../models');
+const { signToken } = require('../../utils/auth');
 
 const resolvers = {
   Query: {
@@ -10,13 +10,7 @@ const resolvers = {
         throw new AuthenticationError('Cannot find a user with this id!');
       }
       return foundUser;
-    },
-    getTeacherProfile: async (parent, args, context) => {
-
-    },
-    getStudentProfile: async (parent, args, context) => {
-
-    },
+    }
   },
 
   Mutation: {
