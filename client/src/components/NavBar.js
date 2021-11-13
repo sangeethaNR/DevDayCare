@@ -9,7 +9,7 @@ import Auth from '../utils/auth'
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-
+  
   return (
     <>
       <Navbar variant='light' expand='lg' className="brand">
@@ -29,7 +29,6 @@ const AppNavbar = () => {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                
                 <Nav.Link onClick={() => setShowModal(true)}>Admin Portal</Nav.Link>
               )}
             </Nav>
