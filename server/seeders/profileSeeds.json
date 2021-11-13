@@ -1,0 +1,49 @@
+[
+ {
+     "name" : "Ananaya",
+     "middleName" :"",
+     "lastName": "Gopi",
+     "dateOfBirth":"03-12-2017",
+     "joinedOn" :"05-01-2020",
+     "allergy" :[],
+     "parents":[
+         {"parentName" : "Sangeetha","phoneNo" : "123-456-7890","address":"123 West Drive,San Diego","relation":"mom"},
+         {"parentName" : "Gopi","phoneNo" : "456-123-7890","address":"123 West Drive,San Diego","relation":"dad"}
+        ],
+        "emergencyContact":[
+            {"contactPerson" : "Sangeetha","relationship":"mom","phoneNo":"123-456-7890"}
+        ],
+        "physician":[
+            {"physicianName":"Dr.Curtis","medicalRecordNo" :123456,"address":"123 East Drive,San Diego","phoneNo":"789-456-7890"}
+        ],
+        "isPottyTrained":true,
+        "profilePic":"empty",
+        "medications":[
+            {"medName" :"Tylenol", "dosage" : "5 ml" }
+        ]
+ },
+ {
+    "name" : "Ananaya",
+    "middleName" :"",
+    "lastName": "Gopi",
+    "dateOfBirth":"03-12-2017",
+    "joinedOn" :"05-01-2020",
+    "allergy" :[],
+    "parents":[
+        {"parentName" : "Sangeetha","phoneNo" : "123-456-7890","address":"123 West Drive,San Diego","relation":"mom"},
+        {"parentName" : "Gopi","phoneNo" : "456-123-7890","address":"123 West Drive,San Diego","relation":"dad"}
+       ],
+       "emergencyContact":[
+           {"contactPerson" : "Sangeetha","relationship":"mom","phoneNo":"123-456-7890"}
+       ],
+       "physician":[
+           {"physicianName":"Dr.Curtis","medicalRecordNo" :"123456","address":"123 East Drive,San Diego","phoneNo":"789-456-7890"}
+       ],
+       "isPottyTrained":true,
+       "profilePic":"empty",
+       "medications":[
+           {"medName" :"Tylenol", "dosage" : "5 ml" }
+       ]
+}
+]
+
