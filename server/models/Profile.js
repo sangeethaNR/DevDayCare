@@ -86,6 +86,10 @@ const ProfileSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  profilePic: {
+    type: String,
+    required: true,
+  },
   medications: [
     {
       medName: {
@@ -96,18 +100,15 @@ const ProfileSchema = new Schema({
         type: String,
         required: true,
       },
-      profilePic: {
-        type: String,
-        required: true,
-      },
+      
     },
   ],
-  mealPlans: [
-      {
-          type: Schema.Types.ObjectId,
-          ref: "Food"
-      }
-  ],
+  // mealPlans: [
+  //     {
+  //         type: Schema.Types.ObjectId,
+  //         ref: "Food"
+  //     }
+  // ],
 //   classAssigned: {
 //     type: Schema.Types.ObjectId,
 //     ref: "ClassRoom",

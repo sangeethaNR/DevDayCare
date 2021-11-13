@@ -27,8 +27,12 @@ const TeacherSchema = new Schema(
       type: Boolean,
       required: true,
       default: true
-    }
-  },
+    },
+  
+  classRoom_id:  {
+    type: Schema.Types.ObjectId,
+    ref: "ClassRoom",
+  }},
   // set this to use virtual below
   {
     toJSON: {

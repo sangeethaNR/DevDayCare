@@ -11,6 +11,10 @@ const FoodSchema = new Schema({
     default: Date.now,
     trim: true,
   },
+  time:{
+    type: String,
+    required: true,
+  },
   mealDesc: {
     type: String,
     required: true,
