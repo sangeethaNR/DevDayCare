@@ -18,6 +18,17 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    is_admin:{
+      type: Boolean,
+      required: true,
+      default:false
+    },
+    is_active:{
+      type: Boolean,
+      required: true,  
+      default:false
+    }
+    
   },
   // set this to use virtual below
   {
