@@ -12,28 +12,14 @@ import { CardActions } from "@mui/material";
 function Activities() {
   return (
     <React.Fragment>
+      <header style={{display:'flex', flexDirection:"row"}}>
+        <h1>Activities Page</h1>
+        <Link as={Link} to="/profile" style={{textDecoration:"none"}}>
+          View Profile here
+        </Link>
+      </header>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Card sx={{ maxWidth: 100 }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image=""
-                alt="profile image"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Profile
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Link as={Link} to="/profile">
-                  View
-                </Link>
-              </CardActions>
-            </Card>
-          </Grid>
           <Grid item xs={12}>
             <Card sx={{ maxWidth: 100 }}>
               <CardMedia
@@ -64,12 +50,12 @@ function Activities() {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Daily Activities 
+                  Daily Activities
                 </Typography>
               </CardContent>
               <CardActions>
                 <Link as={Link} to="/dailyActivities">
-                  Add 
+                  Add
                 </Link>
               </CardActions>
             </Card>
@@ -109,7 +95,7 @@ function Activities() {
               </CardContent>
               <CardActions>
                 <Link as={Link} to="/healthInfo">
-                  Add 
+                  Add
                 </Link>
               </CardActions>
             </Card>
