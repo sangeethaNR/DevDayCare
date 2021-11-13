@@ -1,116 +1,119 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ProfileSchema = new Schema({
-
-    name :{
-        type :String,
-        required : true,
+  name: {
+    type: String,
+    required: true,
+  },
+  middleName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
+  dateOfBirth: {
+    type: Date,
+    required: true,
+    trim: true,
+  },
+  joinedOn: {
+    type: Date,
+    required: true,
+    trim: true,
+  },
+  allergy: [
+    {
+      type: String,
     },
-    middleName:{
-        type :String,
-    },
-    lastName:{
+  ],
+  parents: [
+    {
+      parentName: {
         type: String,
-    },
-    dateOfBirth: {
-        type: Date,
         required: true,
-        trim: true,
-    },
-    joinedOn : {
-        type: Date,
+      },
+      phoneNo: {
+        type: Number,
         required: true,
-        trim: true,
+      },
+      address: {
+        type: String,
+        required: true,
+      },
+      relation: {
+        type: String,
+        required: true,
+      },
     },
-    allergy:[
-        {
-            type: String,
-          },
-    ],
-parents :[
-{
-    parentName:{
-        type :String,
-        required : true,
-    },
-    phoneNo:{
-        type:Number,
-        required:true,
-    },
-    address:{
-        type:String,
-        required:true
-    },
-    relation:{
-        type:String,
-        required:true
-    },
-}],
-emergencyContact : [ 
+  ],
+  emergencyContact: [
     {
-        contactPerson :{
-            type:String,
-            required:true
-        },
-        relationship : {
-            type:String,
-            required:true
-        },
-        phoneNo : {
-            type:Number,
-            required:true
-        },
-    }
-],
-physician : [ 
+      contactPerson: {
+        type: String,
+        required: true,
+      },
+      relationship: {
+        type: String,
+        required: true,
+      },
+      phoneNo: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
+  physician: [
     {
-        physicianName : {
-            type:String,
-            required:true
-        },
-        medicalRecordNo : {
-            type:Number,
-            required:true
-        },
-        address :{
-            type:String,
-            required:true
-        },
-        phoneNo : {
-            type:String,
-            required:true
-        },
-    }
-],
-isPottyTrained : 
-{
+      physicianName: {
+        type: String,
+        required: true,
+      },
+      medicalRecordNo: {
+        type: Number,
+        required: true,
+      },
+      address: {
+        type: String,
+        required: true,
+      },
+      phoneNo: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  isPottyTrained: {
     type: Boolean,
-    required:true
-},
-medications : [ 
+    required: true,
+  },
+  medications: [
     {
-        medName : {
-            type:String,
-            required:true
-        },
-        dosage: {
-            type:String,
-            required:true
-        },
-        profilePic: {
-            type:String,
-            required:true
-        },
-    }
-],
-classAssigned:{
-    type: Schema.Types.ObjectId,
-    ref: 'ClassRoom'
-}
+      medName: {
+        type: String,
+        required: true,
+      },
+      dosage: {
+        type: String,
+        required: true,
+      },
+      profilePic: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  mealPlans: [
+      {
+          type: Schema.Types.ObjectId,
+          ref: "Food"
+      }
+  ],
+//   classAssigned: {
+//     type: Schema.Types.ObjectId,
+//     ref: "ClassRoom",
+//   },
+});
 
-})
-
-
-const Profile = mongoose.model('Profile', ProfileSchema);
+const Profile = mongoose.model("Profile", ProfileSchema);
 
 module.exports = Profile;
