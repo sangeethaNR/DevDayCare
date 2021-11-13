@@ -6,6 +6,14 @@ import Home from './pages/Home';
 import Dashboard from "./pages/Dashboard";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Activities from './pages/Activities'
+import Profile from './pages/activities/profile'
+import Photos from './pages/activities/photos'
+import DailyActivities from './pages/activities/dailyActivities'
+import Food from './pages/activities/food'
+import HealthInfo from './pages/activities/healthInfo'
+import Notes from './pages/activities/notes'
+import Incidents from './pages/activities/incidents'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -42,8 +50,14 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/dashboard' component={Dashboard} />
-          {/* route to activities */}
-          {/* route to any page within activities */}
+          <Route exact path='/activities' component={Activities}/>
+          <Route exact path='/profile' component={Profile}/>
+            <Route exact path='/photos' component={Photos}/>
+            <Route exact path='/dailyActivities' component={DailyActivities} />
+            <Route exact path='/food' component={Food} />
+            <Route exact path='/healthInfo' component={HealthInfo} />
+            <Route exact path='/notes' component={Notes} />
+            <Route exact path='/incidents' component={Incidents} />
         </Switch>
         <Footer />
       </>
