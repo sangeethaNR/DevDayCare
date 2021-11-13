@@ -23,6 +23,12 @@ const ClassRoomSchema = new Schema({
       ref: "Activity",
     },
   ],
+  mealPlans: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: "Food"
+    }
+],
 });
 
 const ClassRoom = mongoose.model("ClassRoom", ClassRoomSchema);
