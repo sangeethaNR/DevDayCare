@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer'
 import Home from './pages/Home';
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/adminDashboard";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Activities from './pages/Activities'
