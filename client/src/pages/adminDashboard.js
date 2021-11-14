@@ -7,9 +7,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import {useQuery} from "@apollo/client"
-import Container from "@mui/material/Container"
-import { GET_ALL_TEACHERS } from "../utils/queries"
+import { useQuery, useMutation } from "@apollo/client";
+import Container from "@mui/material/Container";
+import { GET_ALL_TEACHERS } from "../utils/queries";
+import { CHANGE_TEACHER_STATUS } from "../utils/mutations";
+import Button from "@mui/material/Button";
 
 const columns = [
   { id: "username", label: "Username", minWidth: 170 },
@@ -38,19 +40,32 @@ const columns = [
     minWidth: 170,
     align: "right",
   },
+  {
+    id: "statusButton",
+    label: "Change Status",
+    minWidth: 170,
+    align: "right",
+  },
 ];
 
-function createData(username, fullName, email, joined_on, role, status) {
-  return { username, fullName, email, joined_on, role, status };
+function createData(
+  username,
+  fullName,
+  email,
+  joined_on,
+  role,
+  status,
+  statusButton
+) {
+  return { username, fullName, email, joined_on, role, status, statusButton };
 }
-
-
 
 function AdminDashboard() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const { data } = useQuery(GET_ALL_TEACHERS)
-  const teachers = data?.getAllTeachersForAdmin || []
+  const [changeStatusMutation] = useMutation(CHANGE_TEACHER_STATUS);
+  const { data } = useQuery(GET_ALL_TEACHERS);
+  const teachers = data?.getAllTeachersForAdmin || [];
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -61,64 +76,108 @@ function AdminDashboard() {
     setPage(0);
   };
 
+  const changeTeacherStatus = async (id, status) => {
+    const { data, error } = await changeStatusMutation({
+      variables: {
+        id,
+        status,
+      },
+    });
+  };
+
+  const renderButton = (id, status) => {
+    return status ? (
+      <Button variant="outlined" color="error" onClick={() => changeTeacherStatus(id, false)}>
+        Deactivate
+      </Button>
+    ) : (
+      <Button variant="contained" onClick={() => changeTeacherStatus(id, true)}>
+        Activate
+      </Button>
+    );
+  };
+
   const createRowsData = () => {
-    return teachers.map(({username, first_name, last_name, email, role, is_active, is_main, createdAt}) => {
-      return createData(username, `${first_name} ${last_name}`, email, createdAt, is_main ? "Teacher" : "Substitute Teacher", is_active ? "Active" : "InActive")
-    })
-  }
-console.log(createRowsData())
-  
+    return teachers.map(
+      ({
+        username,
+        first_name,
+        last_name,
+        email,
+        is_active,
+        is_main,
+        createdAt,
+        _id,
+      }) => {
+        return createData(
+          username,
+          `${first_name} ${last_name}`,
+          email,
+          new Date(parseInt(createdAt)).toDateString(),
+          is_main ? "Teacher" : "Substitute Teacher",
+          is_active ? "Active" : "InActive",
+          renderButton(_id, is_active)
+        );
+      }
+    );
+  };
+  console.log(createRowsData());
 
   return (
     <Container>
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {createRowsData()
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number"
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={createRowsData().length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+      <Paper sx={{ width: "100%", overflow: "hidden" }}>
+        <TableContainer sx={{ maxHeight: 440 }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {createRowsData()
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row.code}
+                    >
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === "number"
+                              ? column.format(value)
+                              : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={createRowsData().length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
     </Container>
   );
 }
