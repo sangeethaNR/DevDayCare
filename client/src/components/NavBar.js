@@ -27,7 +27,7 @@ const AppNavbar = () => {
               {/* if user is logged in show dashboard and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/dashboard">
+                  <Nav.Link as={Link} to="/adminDashboard">
                     Dashboard
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>

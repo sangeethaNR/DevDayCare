@@ -29,6 +29,7 @@ const typeDefs = gql`
     is_main: Boolean
     is_active: Boolean
     classRooms: [ClassRooms]
+    createdAt: String
   }
 
   input TeacherInput {
@@ -103,6 +104,7 @@ const typeDefs = gql`
 
   ## IncidentReport def
   type IncidentReport {
+    _id: ID!
     desc: [String!]
     day: String!
     studentId: ID!
@@ -113,6 +115,7 @@ const typeDefs = gql`
     noteDesc: [String!]
     day: String!
     student_id: ID!
+    _id: ID!
   }
 
   ##Input Types
@@ -194,6 +197,7 @@ const typeDefs = gql`
     getTeacherProfile(id: String!): Teacher
     getStudentProfile(id: String!): Student
     getAllTeachersForAdmin: [Teacher]
+    getStudentMedicalInfo(id: String!): Student
   }
   type Mutation {
     login(email: String!, password: String!): Auth
@@ -204,6 +208,9 @@ const typeDefs = gql`
     createClass(teacher_id: String!, className: String!): ClassRooms
     addClassActivities(activityInput: ActivityInput!): Activity
     addStudent(studentInput: StudentInput, class_id: String!): Student
+    addStudentNotes(notesInput: NotesInput!): Notes
+    addStudentIncidentReports(incidentReportInput: IncidentReportInput!): IncidentReport
+    addStudentMedication(medication: MedicationInput!, student_id: String!): Student
   }
 `;
 

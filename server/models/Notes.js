@@ -13,6 +13,9 @@ const NotesSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Profile",
   },
+},
+{
+  timestamps: true
 });
 
 const Notes = mongoose.model("Notes", NotesSchema);
