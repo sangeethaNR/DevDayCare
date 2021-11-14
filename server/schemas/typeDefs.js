@@ -57,6 +57,7 @@ const typeDefs = gql`
     physician: [PhysicianTypes!]
     medications: [MedicationTypes]
     mealPlans: [Food!]
+    profilePic: String!
   }
 
   input StudentInput {
@@ -67,12 +68,12 @@ const typeDefs = gql`
     joinedOn: String!
     allergy: [String]
     isPottyTrained: Boolean!
-    parents: [ParentTypes!]
-    emergencyContact: [EmergencyContactTypes!]
-    physician: [PhysicianTypes!]
-    medications: [MedicationTypes]
-    mealPlans: [Food!]
-    classRoom_id: String!
+    parents: [ParentInput!]
+    emergencyContact: [EmergencyContactInput!]
+    physician: [PhysicianInput!]
+    medications: [MedicationInput!]
+    mealPlans: [FoodInput!]
+    profilePic: String!
   }
 
   ##Food def
@@ -147,7 +148,19 @@ const typeDefs = gql`
     relation: String!
   }
 
+  input ParentInput {
+    parentName: String!
+    phoneNo: Int!
+    address: String!
+    relation: String!
+  }
+
   type EmergencyContactTypes {
+    contactPerson: String!
+    relationship: String!
+    phoneNo: Int!
+  }
+  input EmergencyContactInput {
     contactPerson: String!
     relationship: String!
     phoneNo: Int!
@@ -159,18 +172,20 @@ const typeDefs = gql`
     address: String!
     phoneNo: String!
   }
+  input PhysicianInput {
+    physicianName: String!
+    medicalRecordNo: Int!
+    address: String!
+    phoneNo: String!
+  }
 
   type MedicationTypes {
     medName: String!
     dosage: String!
-    profilePic: String!
   }
-
-  type Blog {
-    title: String!
-    content: String!
-    likes: Int!
-    date: String
+  input MedicationInput {
+    medName: String!
+    dosage: String!
   }
 
   ## queries
@@ -188,7 +203,7 @@ const typeDefs = gql`
     loginTeacher(email: String!, password: String!): TeachersAuth
     createClass(teacher_id: String!, className: String!): ClassRooms
     addClassActivities(activityInput: ActivityInput!): Activity
-    addStudent(studentInput: StudentInput): Student
+    addStudent(studentInput: StudentInput, class_id: String!): Student
   }
 `;
 

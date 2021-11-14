@@ -90,8 +90,17 @@ const resolvers = {
 
       await foundClassRoom.save()
       return activity
+    },
+    addStudent: async (_, {studentInput, class_id }) => {
+      const student = await Profile.create(studentInput)
+      const classRoom = await ClassRoom.findById(class_id)
+      classRoom.students.push(student._id)
+
+      await classRoom.save()
+      return student
     }
   },
+
 };
 
 module.exports = resolvers;
