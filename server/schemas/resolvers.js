@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Teacher, ClassRoom, Profile, Activity } = require("../models");
+const { User, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport } = require("../models");
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
@@ -43,6 +43,14 @@ const resolvers = {
       }
       return teacher;
     },
+    getStudentMedicalInfo: async (_, {id}) => {
+      const studentInfo = Profile.findById(id)
+      if (!studentInfo) {
+        throw new AuthenticationError("Cannot find a student with this id!");
+      }
+      return studentInfo;
+
+    }
   },
 
   Mutation: {
@@ -97,6 +105,22 @@ const resolvers = {
       classRoom.students.push(student._id)
 
       await classRoom.save()
+      return student
+    },
+    addStudentNotes: async (_, {notesInput}) => {
+      const notes = await Notes.create(notesInput)
+
+      return notes
+    },
+    addStudentIncidentReports: async (_, {incidentReportInput}) => {
+      const incidentReport = await IncidentReport.create(incidentReportInput)
+      return incidentReport
+    },
+    addStudentMedication: async (_, {student_id, medication}) => {
+      const student = await Profile.findById(student_id)
+      student.medications.push(medication)
+
+      await student.save()
       return student
     }
   },
