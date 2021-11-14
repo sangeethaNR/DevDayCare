@@ -44,6 +44,7 @@ const typeDefs = gql`
 
   ## Student Def
   type Student {
+    _id: ID!
     name: String!
     middleName: String
     lastName: String
@@ -60,6 +61,7 @@ const typeDefs = gql`
 
   ##Food def
   type Food {
+    _id: ID!
     mealSession: String!
     day: String!
     mealDesc: String!
@@ -67,6 +69,7 @@ const typeDefs = gql`
 
   ## Classrooms def
   type ClassRooms {
+    _id: ID!
     className: String!
     teachers: [Teacher]
     students: [Student]
@@ -75,9 +78,10 @@ const typeDefs = gql`
 
   ## Activity def
   type Activity {
+    _id: ID!
     activityType: String!
     day: String!
-    desc: String!
+    desc: [String!]
   }
 
   ## IncidentReport def
@@ -104,7 +108,8 @@ const typeDefs = gql`
   input ActivityInput {
     activityType: String!
     day: String!
-    desc: String!
+    desc: [String!]
+    classRoom_id: String!
   }
 
   input IncidentReportInput {
@@ -156,7 +161,7 @@ const typeDefs = gql`
   type Query {
     me(username: String!): User
     getTeacherProfile(id: String!): Teacher
-    getStudentProfile(id: String): Student
+    getStudentProfile(id: String!): Student
     getAllTeachersForAdmin: [Teacher]
   }
   type Mutation {
@@ -166,6 +171,7 @@ const typeDefs = gql`
     createTeacher(username: String!, email: String!, password: String!, first_name: String!, last_name: String!, is_main: Boolean!): TeachersAuth
     loginTeacher(email: String!, password: String!): TeachersAuth
     createClass(teacher_id: String!, className: String!): ClassRooms
+    addClassActivities(activityInput: ActivityInput!): Activity
   }
 `;
 
