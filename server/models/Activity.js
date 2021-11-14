@@ -13,10 +13,10 @@ const ActivitySchema = new Schema({
     default: Date.now,
     trim: true,
   },
-  desc: {
+  desc: [{
     type: String,
     required: true,
-  }
+  }]
 });
 
 const Activity = mongoose.model("Activity", ActivitySchema);

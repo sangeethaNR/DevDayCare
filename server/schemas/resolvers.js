@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Teacher, ClassRoom } = require("../models");
+const { User, Teacher, ClassRoom, Profile, Activity } = require("../models");
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
@@ -29,8 +29,20 @@ const resolvers = {
       const teachers = await Teacher.find({})
       return teachers
     },
-    getTeacherProfile: async (parent, args, context) => {},
-    getStudentProfile: async (parent, args, context) => {},
+    getTeacherProfile: async (parent, args, context) => {
+      const foundTeacher = await Teacher.findById(context.user._id)
+      if (!foundTeacher) {
+        throw new AuthenticationError("Cannot find a user with this id!");
+      }
+      return foundTeacher;
+    },
+    getStudentProfile: async (parent, {id}, context) => {
+      const teacher = await Profile.findById(id)
+      if (!teacher) {
+        throw new AuthenticationError("Cannot find a user with this id!");
+      }
+      return teacher;
+    },
   },
 
   Mutation: {
@@ -70,6 +82,14 @@ const resolvers = {
       await teacher.save()
 
       return classRoom
+    },
+    addClassActivities: async (parent, {activityInput : {desc, day, activityType, classRoom_id}}) => {
+      const activity = await Activity.create({desc, activityType, day})
+      const foundClassRoom = await ClassRoom.findById(classRoom_id)
+      foundClassRoom.activities.push(activity._id)
+
+      await foundClassRoom.save()
+      return activity
     }
   },
 };
