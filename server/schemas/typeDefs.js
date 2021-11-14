@@ -46,17 +46,33 @@ const typeDefs = gql`
   type Student {
     _id: ID!
     name: String!
-    middleName: String
-    lastName: String
+    middleName: String!
+    lastName: String!
     dateOfBirth: String!
     joinedOn: String!
     allergy: [String]
     isPottyTrained: Boolean!
-    parents: [ParentTypes]
-    emergencyContact: [EmergencyContactTypes]
-    physician: [PhysicianTypes]
+    parents: [ParentTypes!]
+    emergencyContact: [EmergencyContactTypes!]
+    physician: [PhysicianTypes!]
     medications: [MedicationTypes]
-    mealPlans: [Food]
+    mealPlans: [Food!]
+  }
+
+  input StudentInput {
+    name: String!
+    middleName: String!
+    lastName: String!
+    dateOfBirth: String!
+    joinedOn: String!
+    allergy: [String]
+    isPottyTrained: Boolean!
+    parents: [ParentTypes!]
+    emergencyContact: [EmergencyContactTypes!]
+    physician: [PhysicianTypes!]
+    medications: [MedicationTypes]
+    mealPlans: [Food!]
+    classRoom_id: String!
   }
 
   ##Food def
@@ -172,6 +188,7 @@ const typeDefs = gql`
     loginTeacher(email: String!, password: String!): TeachersAuth
     createClass(teacher_id: String!, className: String!): ClassRooms
     addClassActivities(activityInput: ActivityInput!): Activity
+    addStudent(studentInput: StudentInput): Student
   }
 `;
 
