@@ -29,6 +29,9 @@ const ClassRoomSchema = new Schema({
         ref: "Food"
     }
 ],
+},
+{
+  timestamps: true
 });
 
 const ClassRoom = mongoose.model("ClassRoom", ClassRoomSchema);

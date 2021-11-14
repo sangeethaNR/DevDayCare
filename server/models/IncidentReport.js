@@ -11,6 +11,9 @@ const IncidentReportSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Profile",
   },
+},
+{
+  timestamps: true
 });
 
 const IncidentReport = mongoose.model("IncidentReport", IncidentReportSchema);

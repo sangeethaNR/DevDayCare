@@ -102,7 +102,7 @@ const ProfileSchema = new Schema({
       },
       
     },
-  ],
+  ]
   // mealPlans: [
   //     {
   //         type: Schema.Types.ObjectId,
@@ -113,6 +113,9 @@ const ProfileSchema = new Schema({
 //     type: Schema.Types.ObjectId,
 //     ref: "ClassRoom",
 //   },
+}, 
+{
+  timestamps: true
 });
 
 const Profile = mongoose.model("Profile", ProfileSchema);

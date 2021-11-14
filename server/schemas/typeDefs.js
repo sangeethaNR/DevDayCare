@@ -29,6 +29,7 @@ const typeDefs = gql`
     is_main: Boolean
     is_active: Boolean
     classRooms: [ClassRooms]
+    createdAt: String
   }
 
   input TeacherInput {
