@@ -32,7 +32,15 @@ const TeacherSchema = new Schema(
       type: Boolean,
       required: true,
       default: true
-    }
+    },
+    is_active: {
+      type: Boolean,
+      default: false
+    },
+    classRooms: [{
+      type: Schema.Types.ObjectId,
+      ref: "ClassRoom"
+    }]
   },
   // set this to use virtual below
   {
