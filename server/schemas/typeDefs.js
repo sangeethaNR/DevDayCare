@@ -13,6 +13,10 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  type TeachersAuth {
+    token: ID!
+    user: Teacher
+  }
 
   ## Teacher def
   type Teacher {
@@ -138,6 +142,13 @@ const typeDefs = gql`
     profilePic: String!
   }
 
+  type Blog {
+    title: String!
+    content: String!
+    likes: Int!
+    date: String
+  }
+
   ## queries
   type Query {
     me(username: String!): User
@@ -145,8 +156,9 @@ const typeDefs = gql`
     getStudentProfile(id: String): Student
   }
   type Mutation {
-    createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    createTeacher(username: String!, email: String!, password: String!, first_name: String!, last_name: String!, is_main: Boolean!): TeachersAuth
+    loginTeacher(email: String!, password: String!): TeachersAuth
   }
 `;
 
