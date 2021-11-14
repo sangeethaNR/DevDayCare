@@ -14,7 +14,7 @@ const typeDefs = gql`
     user: User
   }
   type TeachersAuth {
-    token: ID!
+    token: ID
     user: Teacher
   }
 
@@ -27,6 +27,8 @@ const typeDefs = gql`
     first_name: String
     last_name: String
     is_main: Boolean
+    is_active: Boolean
+    classRooms: [ClassRooms]
   }
 
   input TeacherInput {
@@ -37,6 +39,7 @@ const typeDefs = gql`
     first_name: String
     last_name: String
     is_main: Boolean
+    is_active: Boolean
   }
 
   ## Student Def
@@ -154,11 +157,15 @@ const typeDefs = gql`
     me(username: String!): User
     getTeacherProfile(id: String!): Teacher
     getStudentProfile(id: String): Student
+    getAllTeachersForAdmin: [Teacher]
   }
   type Mutation {
     login(email: String!, password: String!): Auth
+    createUser(email: String!, password: String, username: String!): Auth
+    changeTeacherStatus(id: String!, status: Boolean!): TeachersAuth
     createTeacher(username: String!, email: String!, password: String!, first_name: String!, last_name: String!, is_main: Boolean!): TeachersAuth
     loginTeacher(email: String!, password: String!): TeachersAuth
+    createClass(teacher_id: String!, className: String!): ClassRooms
   }
 `;
 
