@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt")
 
 const TeacherSchema = new Schema(
   {
@@ -12,6 +13,10 @@ const TeacherSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+    },
+    username: {
+      type: String,
+      required: true
     },
     email: {
       type: String,
@@ -27,12 +32,8 @@ const TeacherSchema = new Schema(
       type: Boolean,
       required: true,
       default: true
-    },
-  
-  classRoom_id:  {
-    type: Schema.Types.ObjectId,
-    ref: "ClassRoom",
-  }},
+    }
+  },
   // set this to use virtual below
   {
     toJSON: {

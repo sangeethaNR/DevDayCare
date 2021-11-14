@@ -1,3 +1,4 @@
+// Not Used because could not figure out how to refactor resolvers to corresponding items
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../../models');
 const { signToken } = require('../../utils/auth');
@@ -6,7 +7,6 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       const foundUser = await User.findOne({_id: context.user._id})
-    console.log('me' + me)
       if (!foundUser) {
         throw new AuthenticationError('Cannot find a user with this id!');
       }
