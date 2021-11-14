@@ -5,6 +5,13 @@
     "password": "password01",
     "is_admin": true,
     "is_active":true
+  },
+  {
+    "username": "Alex",
+    "email": "alex@dev.com",
+    "password": "password02",
+    "is_admin": false,
+    "is_active":true
   }
  
 ]

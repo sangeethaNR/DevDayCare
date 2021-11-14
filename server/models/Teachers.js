@@ -18,25 +18,25 @@ const TeacherSchema = new Schema(
       type: String,
       required: true
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    is_main: {
-      type: Boolean,
-      required: true,
-      default: true
-    },
-    is_active: {
-      type: Boolean,
-      default: false
-    },
+    // email: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   match: [/.+@.+\..+/, 'Must use a valid email address'],
+    // },
+    // password: {
+    //   type: String,
+    //   required: true,
+    // },
+    // is_main: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: true
+    // },
+    // is_active: {
+    //   type: Boolean,
+    //   default: false
+    // },
     classRooms: [{
       type: Schema.Types.ObjectId,
       ref: "ClassRoom"
