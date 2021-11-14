@@ -1,3 +1,5 @@
+// Not Used because could not figure out how to refactor resolvers/typeDefs to corresponding items
+
 // const {  makeExecutableSchema } = require("@graphql-tools/schema");
 // const { mergeTypeDefs } = require("@graphql-tools/merge");
 
