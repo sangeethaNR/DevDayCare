@@ -23,6 +23,7 @@ const AppNavbar = () => {
           fluid
           style={{ fontFamily: "Comic Sans Ms", fontSize: "1.3rem" }}
         >
+          {/* TO DO:link to home page */}
           <Navbar.Brand>
             <h1>Blossom Babies</h1>
           </Navbar.Brand>
