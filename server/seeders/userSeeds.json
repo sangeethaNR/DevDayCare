@@ -10,7 +10,7 @@
     "username": "Alex",
     "email": "alex@dev.com",
     "password": "password02",
-    "is_admin": false,
+    "is_admin": true,
     "is_active":true
   }
  

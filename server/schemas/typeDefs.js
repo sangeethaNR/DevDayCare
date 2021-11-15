@@ -25,7 +25,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-   
+    password: String
     first_name: String
     last_name: String
     is_main: Boolean
@@ -191,6 +191,7 @@ const typeDefs = gql`
    last_name:String!
    username:String!
    email:String!
+   password: String
    is_main: Boolean!
    is_active:Boolean
    classRooms:[classRoom]

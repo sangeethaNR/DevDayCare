@@ -20,6 +20,7 @@ function teacherDashboard() {
       <Link as={Link} to="/activities">
         Activities
       </Link>
+      <h1>Your profile is inactive waiting for activatruon</h1>
     </React.Fragment>
   );
 }
