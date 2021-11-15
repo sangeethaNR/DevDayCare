@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const GET_ME = gql`
   query me($username: String!) {
@@ -10,15 +10,27 @@ export const GET_ME = gql`
   }
 `;
 
-export const GET_ALL_TEACHERS = gql`query getAllTeachersForAdmin {
-  getAllTeachersForAdmin {
-    _id
-    email
-    first_name
-    last_name
-    is_active
-    is_main
-    createdAt
-    username
+export const GET_ALL_TEACHERS = gql`
+  query getAllTeachersForAdmin {
+    getAllTeachersForAdmin {
+      _id
+      email
+      first_name
+      last_name
+      is_active
+      is_main
+      createdAt
+      username
+    }
   }
-}`
+`;
+
+export const GET_TEACHER_PROFILE = gql`
+  query getTeacherProfile($id: String!) {
+    getTeacherProfile(id: $id) {
+      first_name
+      is_active
+      _id
+    }
+  }
+`;

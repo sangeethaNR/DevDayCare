@@ -215,7 +215,7 @@ const typeDefs = gql`
     medName: String!
     dosage: String!
   }
-type ClassRooom{
+type ClassRoom{
   className : String!
   teachers:[Teachers]
   students:[Profile]
