@@ -23,6 +23,7 @@ function Home() {
           height="500px"
         />
         <CardActions style={{position:"absolute", left:"75%", top:".1%"}} >
+          {/* TO DO: Direct to Contact Page */}
         <Button size="small" style={{color:'#0096c7', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>contact us</Button>
       </CardActions>
       </Card >
