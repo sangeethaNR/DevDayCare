@@ -41,6 +41,19 @@ function addStudent() {
           <input placeholder="relationship" maxlength="20" type="text" />
         </div>
         <div>
+          <label for="contactPerson">Emergecy Contact:</label>
+          <input placeholder="contact person" maxlength="20" type="text" />
+        </div>
+        <div>
+          <label for="relationship">Relationship:</label>
+          <input placeholder="relationship" maxlength="20" type="text" />
+        </div>
+        <div>
+          <label for="phoneNo">Phone Number:</label>
+          <input placeholder="phone number" maxlength="20" type="number" />
+        </div>
+        <div>
+          
         <button type="submit">Submit</button>
         </div>
       </form>
