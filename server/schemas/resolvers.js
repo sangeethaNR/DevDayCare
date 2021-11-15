@@ -4,7 +4,7 @@ const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
   console.log('inside login function:' + email+ password)
-  const user = await Schema.findOne({ email,is_active:true });
+  const user = await Schema.findOne({ email });
   console.log("user:" + user)
   if (!user) {
     throw new AuthenticationError("Can't find this user");
@@ -79,8 +79,8 @@ const resolvers = {
 
       return {user}
     },
-    createTeacher: async (parent, { username, email, first_name, last_name, is_main }) => {
-      const user = await Teacher.create({ username, email, first_name, last_name, is_main });
+    createTeacher: async (parent, { username, email, first_name, last_name, is_main, password }) => {
+      const user = await Teacher.create({ username, email, first_name, last_name, is_main, password });
       const token = signToken(user);
       return { token, user };
     },
