@@ -71,8 +71,8 @@ const resolvers = {
 
       return {user}
     },
-    createTeacher: async (parent, { username, email, password, first_name, last_name, is_main }) => {
-      const user = await Teacher.create({ username, email, password, first_name, last_name, is_main });
+    createTeacher: async (parent, { username, email, first_name, last_name, is_main }) => {
+      const user = await Teacher.create({ username, email, first_name, last_name, is_main });
       const token = signToken(user);
       return { token, user };
     },
@@ -124,7 +124,13 @@ const resolvers = {
 
       await student.save()
       return student
-    }
+    },
+    addTeacher:async (parent, {username, email, first_name, last_name, is_main,is_active}) => {
+
+      const teacher = await Teacher.create({username, email, first_name, last_name, is_main,is_active});
+return teacher
+    },
+  
   },
 
 };

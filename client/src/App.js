@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer'
@@ -15,6 +15,9 @@ import Food from './pages/activities/food'
 import HealthInfo from './pages/activities/healthInfo'
 import Notes from './pages/activities/notes'
 import Incidents from './pages/activities/incidents'
+
+import UserProvider from './components/AppContext';
+import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,11 +43,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
 
   return (
     <ApolloProvider client={client}>
+      <UserProvider>
     <Router>
       <>
         <Navbar />
@@ -64,6 +67,7 @@ function App() {
         <Footer />
       </>
     </Router>
+    </UserProvider>
     </ApolloProvider>
   );
 }

@@ -25,7 +25,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    password: String
+   
     first_name: String
     last_name: String
     is_main: Boolean
@@ -79,13 +79,7 @@ const typeDefs = gql`
     profilePic: String!
   }
 
-  ##Food def
-  type Food {
-    _id: ID!
-    mealSession: String!
-    day: String!
-    mealDesc: String!
-  }
+  
 
   ## Classrooms def
   type ClassRooms {
@@ -183,7 +177,41 @@ const typeDefs = gql`
     address: String!
     phoneNo: String!
   }
+  type classRoom{
+    _id :ID
+    className:String!
+    teachers:[Teachers]
+    students:[Profile]
+    activities:[activity]
+    mealPlans:[Food]
 
+ }
+ type Teachers{
+   first_name:String!
+   last_name:String!
+   username:String!
+   email:String!
+   is_main: Boolean!
+   is_active:Boolean
+   classRooms:[classRoom]
+ }
+ scalar Date
+ type Profile{
+   name :String!
+   dateOfBirth:Date!
+   joinedOn:Date!
+ }
+ type activity{
+  activityType: String!
+  day:Date
+  desc:String!
+ }
+ type Food{
+  mealSession :String!
+  day:Date
+  time:String!
+  mealDesc:String!
+ }
   type MedicationTypes {
     medName: String!
     dosage: String!
@@ -213,6 +241,8 @@ const typeDefs = gql`
     addStudentNotes(notesInput: NotesInput!): Notes
     addStudentIncidentReports(incidentReportInput: IncidentReportInput!): IncidentReport
     addStudentMedication(medication: MedicationInput!, student_id: String!): Student
+    addClassRooms(className : String!): classRoom
+    addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   }
 `;
 
