@@ -3,7 +3,9 @@ const { User, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport } = r
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
-  const user = await Schema.findOne({ email });
+  console.log('inside login function:' + email+ password)
+  const user = await Schema.findOne({ email,is_active:true });
+  console.log("user:" + user)
   if (!user) {
     throw new AuthenticationError("Can't find this user");
   }

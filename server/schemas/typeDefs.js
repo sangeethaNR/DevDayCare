@@ -8,6 +8,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    is_active: Boolean
+    is_admin:Boolean
   }
   type Auth {
     token: ID!
