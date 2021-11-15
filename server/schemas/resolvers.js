@@ -31,8 +31,8 @@ const resolvers = {
       const teachers = await Teacher.find({})
       return teachers
     },
-    getTeacherProfile: async (parent, args, context) => {
-      const foundTeacher = await Teacher.findById(context.user._id)
+    getTeacherProfile: async (parent, {id}, context) => {
+      const foundTeacher = await Teacher.findById(id)
       if (!foundTeacher) {
         throw new AuthenticationError("Cannot find a user with this id!");
       }
@@ -47,6 +47,7 @@ const resolvers = {
     },
     getStudentMedicalInfo: async (_, {id}) => {
       const studentInfo = Profile.findById(id)
+      console.log(studentInfo)
       if (!studentInfo) {
         throw new AuthenticationError("Cannot find a student with this id!");
       }
