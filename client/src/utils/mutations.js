@@ -39,7 +39,7 @@ export const CHANGE_TEACHER_STATUS = gql`
 export const CREATE_TEACHER = gql`
   mutation createTeacher(
     $email: String!
-    $password: String!
+ 
     $username: String!
     $first_name: String!
     $last_name: String!
@@ -47,7 +47,7 @@ export const CREATE_TEACHER = gql`
   ) {
     createTeacher(
       email: $email
-      password: $password
+ 
       username: $username
       first_name: $first_name
       last_name: $last_name
