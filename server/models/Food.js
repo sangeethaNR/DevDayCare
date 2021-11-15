@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const dateFormat = require('../utils/dateFormat');
 const Schema = mongoose.Schema;
 const FoodSchema = new Schema({
   //breakfast,lunch,snack
@@ -9,19 +10,17 @@ const FoodSchema = new Schema({
   day: {
     type: Date,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
     trim: true,
   },
   time:{
     type: String,
-    required: true,
+   
   },
   mealDesc: {
     type: String,
     required: true,
   },
-},
-{
-  timestamps: true
 });
 
 const Food = mongoose.model("Food", FoodSchema);
