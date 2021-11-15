@@ -15,16 +15,6 @@ import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
  
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center">
-//       {'Copyright © '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
 const cards = [1, 2, 3];
 
 const theme = createTheme();
@@ -32,11 +22,6 @@ const theme = createTheme();
 export default function Photos() {
   return (
     <ThemeProvider theme={theme}>
-      <AppBar position="relative">
-        <Toolbar>
-          Change this Navbar for Blossom Babies || DevDayCare
-        </Toolbar>
-      </AppBar>
       <main>
         <Box
           sx={{
@@ -51,6 +36,7 @@ export default function Photos() {
               variant="h2"
               align="center"
               color="text.primary"
+              fontFamily="Comic Sans Ms"
               gutterBottom
             >
              Student Photos ...
@@ -118,14 +104,6 @@ export default function Photos() {
       </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Add Footer from Blossom Babies || DevDayCare
-        </Typography>
         {/* <Copyright /> */}
       </Box>
       {/* End footer */}
