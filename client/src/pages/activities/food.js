@@ -1,7 +1,5 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,21 +9,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 const theme = createTheme();
-
+// TODO: Add data to grid
 const rows: GridRowsProp = [
     { id: 1, col1: 'Jeremy', col2: 'No', col3: 'Yes'},
     { id: 2, col1: 'Alessa', col2: 'Yes', col3: 'Yes' },
@@ -41,13 +26,6 @@ const rows: GridRowsProp = [
 export default function Food() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Stack direction = "row" spacing={2}>
-          </Stack>
-        </Toolbar>
-      </AppBar>
       <main>
         {/* Hero unit */}
         <Box
@@ -63,6 +41,7 @@ export default function Food() {
               variant="h2"
               align="center"
               color="text.primary"
+              fontFamily="Comic Sans Ms"
               gutterBottom
             >
              Food Journal
@@ -89,15 +68,6 @@ export default function Food() {
       </main>
       
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          DevDayCare || Blossom Babies
-        </Typography>
-        <Copyright />
       </Box>
       {/* End footer */}
     </ThemeProvider>
