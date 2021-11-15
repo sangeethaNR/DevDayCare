@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport } = require("../models");
+const { User,Food, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport } = require("../models");
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
@@ -52,6 +52,14 @@ const resolvers = {
       }
       return studentInfo;
 
+    },
+    getClassRoom:async(parent,{teachername},context) =>{
+      const classrooom = Teacher.find({username:teachername}).populate('classRooms')
+      console.log(classrooom)
+      if (!classrooom) {
+        throw new AuthenticationError("No classroom associated with the teacher!");
+      }
+      return classrooom;
     }
   },
 
@@ -130,7 +138,16 @@ const resolvers = {
       const teacher = await Teacher.create({username, email, first_name, last_name, is_main,is_active});
 return teacher
     },
-  
+    addFood:async (parent, {mealSession,mealDesc}) => {
+
+      const food = await Food.create( {mealSession,mealDesc});
+return food
+    },
+    addActivity:async (parent, {activityType,desc}) => {
+
+      const activity = await Activity.create( {activityType,desc});
+return activity
+    }
   },
 
 };

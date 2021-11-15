@@ -71,7 +71,7 @@ const AppNavbar = () => {
           }
           else{
             return (  <>
-            <Nav.Link onClick={() => {setShowModal(true)}}>
+            <Nav.Link onClick={() => {setIsTeacher(false);setShowModal(true)}}>
               Admin Portal
             </Nav.Link>
             <Nav.Link onClick={() =>{ setShowTeacherModal(true) }}>

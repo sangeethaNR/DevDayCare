@@ -90,13 +90,7 @@ const typeDefs = gql`
     activities: [Activity]
   }
 
-  ## Activity def
-  type Activity {
-    _id: ID!
-    activityType: String!
-    day: String!
-    desc: [String!]
-  }
+
 
   ## IncidentReport def
   type IncidentReport {
@@ -180,9 +174,9 @@ const typeDefs = gql`
   type classRoom{
     _id :ID
     className:String!
-    teachers:[Teachers]
+   
     students:[Profile]
-    activities:[activity]
+    activities:[Activity]
     mealPlans:[Food]
 
  }
@@ -201,15 +195,15 @@ const typeDefs = gql`
    dateOfBirth:Date!
    joinedOn:Date!
  }
- type activity{
+ type Activity{
   activityType: String!
-  day:Date
+ day:String
   desc:String!
  }
  type Food{
   mealSession :String!
-  day:Date
-  time:String!
+  day:String
+  time:String
   mealDesc:String!
  }
   type MedicationTypes {
@@ -220,10 +214,18 @@ const typeDefs = gql`
     medName: String!
     dosage: String!
   }
+type ClassRooom{
+  className : String!
+  teachers:[Teachers]
+  students:[Profile]
+  activities:[Activity]
+  mealPlans:[Food]
 
+}
   ## queries
   type Query {
     me(username: String!): User
+    getClassRoom(teachername:String!):[Teacher]
     getTeacherProfile(id: String!): Teacher
     getStudentProfile(id: String!): Student
     getAllTeachersForAdmin: [Teacher]
@@ -242,6 +244,8 @@ const typeDefs = gql`
     addStudentIncidentReports(incidentReportInput: IncidentReportInput!): IncidentReport
     addStudentMedication(medication: MedicationInput!, student_id: String!): Student
     addClassRooms(className : String!): classRoom
+    addFood(mealSession:String!,mealDesc:String!):Food
+    addActivity(activityType:String!,desc:String!):Activity
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   }
 `;
