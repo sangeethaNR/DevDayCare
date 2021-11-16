@@ -25,9 +25,9 @@ function TeacherDashboardPage() {
     
       )}
       {/* TO DO: add activities into logic for teacher profile and direct to each student by id */}
-      <Link as={Link} to="/activities" style={{textDecoration:"none", padding:"10px", fontFamily: "Comic Sans Ms", fontSize: "1.3rem", color:"black" }}>
+      {/* <Link as={Link} to="/activities" style={{textDecoration:"none", padding:"10px", fontFamily: "Comic Sans Ms", fontSize: "1.3rem", color:"black" }}>
         Activities
-      </Link>
+      </Link> */}
     </React.Fragment>
   );
 }
