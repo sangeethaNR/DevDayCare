@@ -125,6 +125,7 @@ function AdminDashboard() {
   console.log(createRowsData());
 
   return (
+    <React.Fragment>
     <Container>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 440 }}>
@@ -180,6 +181,7 @@ function AdminDashboard() {
         />
       </Paper>
     </Container>
+    </React.Fragment>
   );
 }
 

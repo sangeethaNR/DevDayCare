@@ -20,7 +20,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar variant="light" expand="lg" className="brand">
+      <Navbar variant="light" expand="lg" className="brand" >
         <Container
           fluid
           style={{ fontFamily: "Comic Sans Ms", fontSize: "1.3rem" }}
