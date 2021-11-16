@@ -3,7 +3,7 @@ const { User,Food, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport 
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
-  console.log('inside login function:' + email+ password)
+  console.log('inside login function:' +Schema+ email+ password)
   const user = await Schema.findOne({ email });
   console.log("user:" + user)
   if (!user) {
