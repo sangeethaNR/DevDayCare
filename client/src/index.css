@@ -21,3 +21,27 @@ svg {
   stroke: #feffbe;
 }
 
+.form-box {
+  min-width: 100%;
+  height: 100vh;
+  margin: 2vw;
+  padding: 2vw;
+  padding-left: 35%;
+  position: relative;
+  font-family: "Comic Sans Ms";
+}
+
+.form-box input,
+textarea {
+  display: block;
+  float: center;
+  width: 40%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0 0;
+  border: 0;
+  border-radius: 5px;
+}
+
+.form-box textarea {
+  height: 10vh;
+}
