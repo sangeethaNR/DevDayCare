@@ -52,10 +52,11 @@ export default function Food() {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained"
+              {/* removed to add to new page */}
+              {/* <Button variant="contained"
               color = "secondary"
               startIcon={<FoodBankIcon/>}
-              >Add Food</Button>
+              >Add Food</Button> */}
             </Stack>
             
             </Container>

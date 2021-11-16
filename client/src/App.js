@@ -17,6 +17,12 @@ import Notes from './pages/activities/notes'
 import Incidents from './pages/activities/incidents'
 import AddStudent from './pages/addStudent'
 import AddTeacher from './pages/addTeacher'
+import AddPhoto from "./pages/activities/addPhoto"
+import AddFood from "./pages/activities/addFood"
+import NoteHistory from "./pages/activities/noteHistory"
+import IncidentHistory from "./pages/activities/incidentHistory"
+import HealthHistory from "./pages/activities/healthHistory"
+import DailyActivitiesHistory from "./pages/activities/activityHistory"
 
 import UserProvider from './components/AppContext';
 import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
@@ -62,11 +68,17 @@ function App() {
           <Route exact path='/activities' component={Activities}/>
           <Route exact path='/profile' component={Profile}/>
             <Route exact path='/photos' component={Photos}/>
+            <Route exact path='/addPhotos' component={AddPhoto} />
             <Route exact path='/dailyActivities' component={DailyActivities} />
+            <Route exact path='/dailyActivitiesHistory' component={DailyActivitiesHistory} />
             <Route exact path='/food' component={Food} />
+            <Route exact path='/addFood' component={AddFood} />
             <Route exact path='/healthInfo' component={HealthInfo} />
-            <Route exact path='/notes/:id' component={Notes} />
+            <Route exact path='/healthHistory' component={HealthHistory} />
+            <Route exact path='/notes' component={Notes} />
+            <Route exact path='/noteHistory' component={NoteHistory} />
             <Route exact path='/incidents' component={Incidents} />
+            <Route exact path='/incidentHistory' component={IncidentHistory} />
         </Switch>
         <Footer />
       </>

@@ -45,3 +45,7 @@ textarea {
 .form-box textarea {
   height: 10vh;
 }
+
+.form-box button {
+  border-radius: 1rem;
+}

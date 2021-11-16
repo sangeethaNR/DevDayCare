@@ -7,12 +7,12 @@ function HealthInfo() {
         <label for="medications">Medication Info</label>
         <input placeholder="Medication" maxlength="28" type="text" />
         <input placeholder="Dosage" maxlength="28" type="text" />
-        <button type="submit">Submit</button>
         <label for="physician">Physician Info:</label>
           <input placeholder="name" maxlength="20" type="text" />
           <input placeholder="medical record number" maxlength="20" type="text" />
           <textarea placeholder="address" maxlength="20" type="text" />
           <input placeholder="phone number" maxlength="20" type="number" />
+          <button type="submit">Submit</button>
       </div>
     </form>
   );
