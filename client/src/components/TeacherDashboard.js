@@ -81,6 +81,7 @@ function TeacherDashboard({ user_id }) {
   };
 
   return (
+    <React.Fragment>
     <Container>
       {createRowsData()?.length && (
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
@@ -138,6 +139,7 @@ function TeacherDashboard({ user_id }) {
         </Paper>
       )}
     </Container>
+    </React.Fragment>
   );
 }
 
