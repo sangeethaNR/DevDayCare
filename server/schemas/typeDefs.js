@@ -212,8 +212,9 @@ const typeDefs = gql`
     dosage: String!
   }
   type Photo{
+    _id : ID
     student_id : String
-    day : String!
+    day : String
     imageUrl:String!
   }
   input MedicationInput {
@@ -229,6 +230,7 @@ const typeDefs = gql`
     getStudentProfile(id: String!): Student
     getAllTeachersForAdmin: [Teacher]
     getStudentMedicalInfo(id: String!): Student
+    getPhotos(student_id: String) : [Photo]
   }
   type Mutation {
     login(email: String!, password: String!): Auth

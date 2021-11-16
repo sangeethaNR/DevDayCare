@@ -61,6 +61,16 @@ const resolvers = {
         throw new AuthenticationError("No classroom associated with the teacher!");
       }
       return classRoom;
+    },
+    getPhotos:async(parent,{ student_id },context) =>{
+      console.log('inside getPhotos:0' + student_id)
+      const photo = Photo.find({student_id: student_id})
+      
+      console.log(photo)
+      if (!photo) {
+        throw new AuthenticationError("No photo associated with the student!");
+      }
+      return photo;
     }
   },
 
