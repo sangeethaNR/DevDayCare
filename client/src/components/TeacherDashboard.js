@@ -18,8 +18,8 @@ const columns = [
   { id: "student_name", label: "Student Name", minWidth: 170 },
   { id: "food", label: "Food", minWidth: 100 },
   {
-    id: "notes",
-    label: "Notes",
+    id: "activity",
+    label: "Activity",
     minWidth: 170,
     align: "right",
   },
@@ -37,8 +37,8 @@ const columns = [
   },
 ];
 
-function createData(student_name, food, notes, parents, assistants) {
-  return { student_name, food, notes, parents, assistants };
+function createData(student_name, food, activity, parents, assistants) {
+  return { student_name, food, activity, parents, assistants };
 }
 
 function TeacherDashboard({ user_id }) {
@@ -72,7 +72,7 @@ function TeacherDashboard({ user_id }) {
         return createData(
           item.name,
           "view",
-          <Link to={`/notes/${item._id}`}>View Notes</Link>,
+          <Link to={`/activities/${item._id}`}>View Activity</Link>,
           renderParentColumn(item.parents),
           classRooms[0].teachers[0].username
         );
