@@ -54,13 +54,13 @@ const resolvers = {
       return studentInfo;
 
     },
-    getClassRoom:async(parent,{teachername},context) =>{
-      const classrooom = Teacher.find({username:teachername}).populate('classRooms')
-      console.log(classrooom)
-      if (!classrooom) {
+    getClassRoom:async(parent,{ teacherId },context) =>{
+      const classRoom = ClassRoom.find({teachers: teacherId}).populate('students').populate("teachers")
+      console.log(classRoom)
+      if (!classRoom) {
         throw new AuthenticationError("No classroom associated with the teacher!");
       }
-      return classrooom;
+      return classRoom;
     }
   },
 
