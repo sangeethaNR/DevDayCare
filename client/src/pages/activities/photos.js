@@ -47,10 +47,11 @@ export default function Photos() {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained"
+              {/* removed button to go on a diff form */}
+              {/* <Button variant="contained"
               color = "secondary"
               startIcon={<AddAPhotoIcon/>}
-              >Add Photo</Button>
+              >Add Photo</Button> */}
               <Button variant="contained"
               color = "secondary"
               >View/Sort

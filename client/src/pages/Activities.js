@@ -34,8 +34,11 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Link as={Link} to="/photos">
+              <Link as={Link} to="/addPhotos">
                   Add
+                </Link>
+                <Link as={Link} to="/photos">
+                  View
                 </Link>
               </CardActions>
             </Card>
@@ -57,6 +60,9 @@ function Activities() {
                 <Link as={Link} to="/dailyActivities">
                   Add
                 </Link>
+                <Link as={Link} to="/dailyActivitiesHistory">
+                  View
+                </Link>
               </CardActions>
             </Card>
           </Grid>
@@ -74,8 +80,11 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Link as={Link} to="/food">
+              <Link as={Link} to="/addFood">
                   Add
+                </Link>
+                <Link as={Link} to="/food">
+                  View
                 </Link>
               </CardActions>
             </Card>
@@ -97,6 +106,9 @@ function Activities() {
                 <Link as={Link} to="/healthInfo">
                   Add
                 </Link>
+                <Link as={Link} to="/healthHistory">
+                  View
+                </Link>
               </CardActions>
             </Card>
           </Grid>
@@ -117,6 +129,9 @@ function Activities() {
                 <Link as={Link} to="/notes">
                   Add
                 </Link>
+                <Link as={Link} to="/noteHistory">
+                  View
+                </Link>
               </CardActions>
             </Card>
           </Grid>
@@ -136,6 +151,9 @@ function Activities() {
               <CardActions>
                 <Link as={Link} to="/incidents">
                   Add
+                </Link>
+                <Link as={Link} to="/incidentHistory">
+                  View
                 </Link>
               </CardActions>
             </Card>

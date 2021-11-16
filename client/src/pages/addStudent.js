@@ -11,12 +11,12 @@ function addStudent() {
           <input placeholder="Last Name" maxlength="28" type="text" />
           <input placeholder="DOB" maxlength="8" type="date" />
           <input placeholder="Allergy" maxlength="28" type="text" />
-          <label for="parentName">Parent's Info:</label>
+          <label for="parents">Parent's Info:</label>
           <input placeholder="Parent Name" maxlength="28" type="text" />
           <input placeholder="Phone Number" maxlength="28" type="number" />
           <textarea placeholder="Address" maxlength="50" type="text" />
           <input placeholder="relationship" maxlength="20" type="text" />
-          <label for="contactPerson">Emergecy Contact Info:</label>
+          <label for="emergencyContact">Emergecy Contact Info:</label>
           <input placeholder="contact person" maxlength="20" type="text" />
           <input placeholder="relationship" maxlength="20" type="text" />
           <input placeholder="phone number" maxlength="20" type="number" />
