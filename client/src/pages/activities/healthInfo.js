@@ -1,17 +1,15 @@
-import * as React from 'react';
-
+import * as React from "react";
 
 function HealthInfo() {
-
-    return (
-      <form>
-      <label for="medName">Medication:</label>
-      <input placeholder="Medication" maxlength="28" type="text" />
-      <label for="dosage">Dosage:</label>
-      <input placeholder="Dosage" maxlength="28" type="text" />
-      <button type="submit">Submit</button>
+  return (
+    <form>
+      <div class="form-box">
+        <input placeholder="Medication" maxlength="28" type="text" />
+        <input placeholder="Dosage" maxlength="28" type="text" />
+        <button type="submit">Submit</button>
+      </div>
     </form>
-    );
-  }
+  );
+}
 
 export default HealthInfo;
