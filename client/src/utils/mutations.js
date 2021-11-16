@@ -75,3 +75,14 @@ export const LOGIN_TEACHER = gql`
     }
   }
 `;
+
+
+export const ADD_PHOTO = gql`
+mutation addPhoto($student_id: String, $imageUrl: String!){
+  addPhoto(student_id:$student_id,imageUrl:$imageUrl){
+    student_id
+    imageUrl
+    day
+  }
+}
+`;

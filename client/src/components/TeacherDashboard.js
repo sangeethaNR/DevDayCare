@@ -72,7 +72,7 @@ function TeacherDashboard({ user_id }) {
         return createData(
           item.name,
           "view",
-          <Link to={`/activities/${item._id}`}>View Activity</Link>,
+          <Link to={`/activities/${item._id}`  }>View Activity</Link>,
           renderParentColumn(item.parents),
           classRooms[0].teachers[0].username
         );

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -10,8 +10,10 @@ import { CardActions } from "@mui/material";
 // add images to card
 
 function Activities() {
+  const {itemId} = useParams()
   return (
     <React.Fragment>
+    
       <header style={{display:'flex', flexDirection:"row"}}>
         <h1>Activities Page</h1>
         <Link as={Link} to="/profile" style={{textDecoration:"none"}}>
@@ -34,10 +36,10 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions>
-              <Link as={Link} to="/addPhotos">
+              <Link as={Link} to={`/addPhotos/${itemId}`}>
                   Add
                 </Link>
-                <Link as={Link} to="/photos">
+                <Link as={Link}  to={`photos/${itemId}`}>
                   View
                 </Link>
               </CardActions>
