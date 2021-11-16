@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import { GET_ALL_TEACHERS } from "../utils/queries";
 import { CHANGE_TEACHER_STATUS } from "../utils/mutations";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const columns = [
   { id: "username", label: "Username", minWidth: 170 },
@@ -126,6 +127,9 @@ function AdminDashboard() {
 
   return (
     <React.Fragment>
+            <Link as={Link} to="/addTeacher" style={{textDecoration:"none", padding:"10px", fontFamily: "Comic Sans Ms", fontSize: "1.3rem", color:"black" }}>
+        Add Teacher
+      </Link>
     <Container>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 440 }}>
