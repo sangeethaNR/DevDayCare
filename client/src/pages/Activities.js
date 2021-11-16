@@ -37,11 +37,11 @@ function Activities() {
               </CardContent>
               <CardActions>
               <Link as={Link} to={`/addPhotos/${itemId}`}>
-                  Add
+                  Add/view
                 </Link>
-                <Link as={Link}  to={`photos/${itemId}`}>
+                {/* <Link as={Link}  to={`photos/${itemId}`}>
                   View
-                </Link>
+                </Link> */}
               </CardActions>
             </Card>
           </Grid>

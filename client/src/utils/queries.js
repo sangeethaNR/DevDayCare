@@ -61,3 +61,14 @@ export const GET_CLASS_INFO = gql`
     }
   }
 `;
+
+export const QUERY_PHOTOS = gql`
+query getPhotos($student_id:String){
+  getPhotos(student_id : $student_id){
+    _id
+    student_id
+    imageUrl
+    day
+  }
+}
+`;
