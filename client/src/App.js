@@ -16,7 +16,7 @@ import HealthInfo from './pages/activities/healthInfo'
 import Notes from './pages/activities/notes'
 import Incidents from './pages/activities/incidents'
 import AddStudent from './pages/addStudent'
-
+import AddTeacher from './pages/addTeacher'
 
 import UserProvider from './components/AppContext';
 import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
@@ -58,6 +58,7 @@ function App() {
           <Route exact path='/adminDashboard' component={adminDashboard} />
           <Route exact path='/teacherDashboard' component={teacherDashboard} />
           <Route exact path='/addStudent' component={AddStudent} />
+          <Route exact path='/addTeacher' component={AddTeacher} />
           <Route exact path='/activities' component={Activities}/>
           <Route exact path='/profile' component={Profile}/>
             <Route exact path='/photos' component={Photos}/>
