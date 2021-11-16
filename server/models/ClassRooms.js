@@ -5,12 +5,12 @@ const ClassRoomSchema = new Schema({
     type: String,
     required: true,
   },
-  // teachers: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Teachers",
-  //   },
-  // ],
+  teachers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Teachers",
+    },
+  ],
   students: [
     {
       type: Schema.Types.ObjectId,

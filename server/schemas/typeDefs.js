@@ -172,13 +172,12 @@ const typeDefs = gql`
     phoneNo: String!
   }
   type classRoom{
-    _id :ID
-    className:String!
-   
+    className : String!
+    teachers:[Teachers]
     students:[Profile]
     activities:[Activity]
     mealPlans:[Food]
-
+    _id: ID!
  }
  type Teachers{
    first_name:String!
@@ -200,6 +199,7 @@ const typeDefs = gql`
   activityType: String!
  day:String
   desc:String!
+  _id: ID!
  }
  type Food{
   mealSession :String!
@@ -215,18 +215,11 @@ const typeDefs = gql`
     medName: String!
     dosage: String!
   }
-type ClassRoom{
-  className : String!
-  teachers:[Teachers]
-  students:[Profile]
-  activities:[Activity]
-  mealPlans:[Food]
 
-}
   ## queries
   type Query {
     me(username: String!): User
-    getClassRoom(teachername:String!):[Teacher]
+    getClassRoom(teacherId: String!):[ClassRooms]
     getTeacherProfile(id: String!): Teacher
     getStudentProfile(id: String!): Student
     getAllTeachersForAdmin: [Teacher]

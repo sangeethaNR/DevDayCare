@@ -34,3 +34,30 @@ export const GET_TEACHER_PROFILE = gql`
     }
   }
 `;
+
+export const GET_CLASS_INFO = gql`
+  query getClassRooms($teacherId: String!) {
+    getClassRoom(teacherId: $teacherId) {
+      _id
+      className
+      students {
+        _id
+        name
+        profilePic
+        mealPlans {
+          mealSession
+        }
+        parents {
+          parentName
+        }
+      }
+      activities {
+        day
+        _id
+      }
+      teachers {
+        username
+      }
+    }
+  }
+`;

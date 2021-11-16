@@ -4,7 +4,7 @@ import Navbar from './components/NavBar';
 import Footer from './components/Footer'
 import Home from './pages/Home';
 import adminDashboard from "./pages/adminDashboard";
-import teacherDashboard from "./pages/teacherDashboard";
+import teacherDashboard from "./pages/teacherDashboardPage";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Activities from './pages/Activities'
@@ -61,7 +61,7 @@ function App() {
             <Route exact path='/dailyActivities' component={DailyActivities} />
             <Route exact path='/food' component={Food} />
             <Route exact path='/healthInfo' component={HealthInfo} />
-            <Route exact path='/notes' component={Notes} />
+            <Route exact path='/notes/:id' component={Notes} />
             <Route exact path='/incidents' component={Incidents} />
         </Switch>
         <Footer />
