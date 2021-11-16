@@ -3,7 +3,7 @@ import * as React from "react";
 function addTeacher() {
   return (
     <React.Fragment>
-      <form>
+      <form style={{border:"dotted pink 2vw"}}>
       <div className = "form-box">
           <label for="name">Teacher Info:</label>
           <input placeholder="First Name" maxlength="28" type="text" />
