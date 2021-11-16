@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User,Food, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport } = require("../models");
+const { Photo,User,Food, Teacher, ClassRoom, Profile, Activity, Notes, IncidentReport } = require("../models");
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
@@ -148,6 +148,11 @@ return food
 
       const activity = await Activity.create( {activityType,desc});
 return activity
+    },
+    addPhoto:async (parent, {student_id,imageUrl}) => {
+
+      const photo = await Photo.create( {student_id,imageUrl});
+return photo
     }
   },
 

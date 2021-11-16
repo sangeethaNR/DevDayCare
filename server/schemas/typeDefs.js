@@ -211,6 +211,11 @@ const typeDefs = gql`
     medName: String!
     dosage: String!
   }
+  type Photo{
+    student_id : String
+    day : String!
+    imageUrl:String!
+  }
   input MedicationInput {
     medName: String!
     dosage: String!
@@ -241,6 +246,7 @@ const typeDefs = gql`
     addFood(mealSession:String!,mealDesc:String!):Food
     addActivity(activityType:String!,desc:String!):Activity
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
+  addPhoto(student_id: String,imageUrl: String!):Photo
   }
 `;
 
