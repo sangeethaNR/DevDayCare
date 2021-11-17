@@ -28,10 +28,10 @@ SO THAT I can easily know reference specific details about the child as well as 
 
 ## Installation
 
-Run the command `npx create-react-app app-name`
-Run the command `npm i' to add the following dependencies.
-NPM:axios, cloudinary-react, mongoose, apollo/client, material ui, bootstrap, react-bootstrap, graphql, react-router-dom, react-scripts, jwt-decode, apollo-server-express, bcrypt, express, and nodemon.
-Run npm run develop.
+- Run the command `npx create-react-app app-name`
+- Run the command `npm i' to add the following dependencies.
+- NPM: axios, cloudinary-react, mongoose, apollo/client, material ui, bootstrap, react-bootstrap, graphql, react-router-dom, react-scripts, jwt-decode, apollo-server-express, bcrypt, express, and nodemon.
+- Run npm run develop.
 
 ## Usage
 
@@ -43,4 +43,4 @@ This project is convered under the MIT License.
 
 ## Questions
 
-If you have any questions about this repo, feel free to contact any of our team members at mbsaideman@gmail.com, mgmedrano0203@gmail.com, gio53196@gmail.com, and sangeethajadhav123@gmail.com. You can find more of our work at [Mackenzie](https://github.com/Msaideman), [Mike](https://github.com/mgmedrano), [Giovanni](https://github.com/gisosa531), and [Sangeetha](https://github.com/sangeethaNR).
+If you have any questions about this repo, feel free to contact any of our team members at mbsaideman@gmail.com, mgmedrano0203@gmail.com, gio53196@gmail.com, and sangeethajadhav123@gmail.com. You can find more of our work via our Github profiles: [Mackenzie](https://github.com/Msaideman), [Mike](https://github.com/mgmedrano), [Giovanni](https://github.com/gisosa531), and [Sangeetha](https://github.com/sangeethaNR).
