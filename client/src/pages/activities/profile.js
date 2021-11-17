@@ -56,11 +56,11 @@ export default function Profile() {
                       {/* TODO: Append Data */}
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2" noWrap="false" style={{fontSize:"1rem", fontFamily:"Comic Sans Ms"}}>
-                      First Last                  
+                      Jane Doe                 
                       <br />
                       Birthdate: 02/28/2014
                       <br />
-                      Allergy: List + Link to Health info
+                      Allergy: Pine Nuts
                       <br />
                       Potty Trained: Yes
                       <br />
@@ -89,7 +89,7 @@ export default function Profile() {
                       <br />
                       Cell: (619) 867-5309
                       <br />
-                      Address: 123 Material Ct, SD, CA 92108
+                      Address: 123 Material Ct
                     </Typography>
                   </CardContent>
                 </Card>
