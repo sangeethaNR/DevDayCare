@@ -3,6 +3,12 @@ import * as React from "react";
 import { useHistory } from "react-router";
 import { AppContext } from "../components/AppContext";
 import { CREATE_CLASS } from "../utils/mutations";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 function AddStudent() {
   const history = useHistory();
@@ -31,7 +37,7 @@ function AddStudent() {
   };
   return (
     <React.Fragment>
-      <form style={{ border: "dotted pink 2vw" }} onSubmit={handleSubmit}>
+      {/* <form style={{ border: "dotted pink 2vw" }} onSubmit={handleSubmit}>
         <div className="form-box">
           <label for="name">Classroom Info:</label>
           <input
@@ -43,7 +49,35 @@ function AddStudent() {
           <input placeholder="Max Students" max="28" type="number" />
           <button type="submit">Submit</button>
         </div>
-      </form>
+      </form> */}
+
+      <Container style={{height:"100vh"}}>
+      <Typography variant="h6" gutterBottom style={{marginTop:"5rem"}}>
+          Add Classroom
+        </Typography>
+        <Box component="form">
+        <Grid container spacing={3}></Grid>
+        <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                fullWidth
+                type="text"
+                id="className"
+                name="className"
+                placeholder="class name"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                variant="standard"
+                style={{margin:"2rem"}}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Button fullWidth variant="contained" onClick={handleSubmit}>
+                Submit form{" "}
+              </Button>
+            </Grid>
+        </Box>
+      </Container>
     </React.Fragment>
   );
 }
