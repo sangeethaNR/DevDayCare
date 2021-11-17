@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 function Home() {
@@ -22,9 +22,8 @@ function Home() {
           alt="day care photo"
           height="500px"
         />
-        <CardActions style={{position:"absolute", left:"75%", top:".1%"}} >
-          {/* TO DO: Direct to Contact Page */}
-        <Button size="small" style={{color:'#0096c7', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold"}}>contact us</Button>
+        <CardActions style={{position:"absolute", left:"75%", top:"1%"}} >
+        <Link href="https://github.com/sangeethaNR/DevDayCare" size="small" style={{color:'#0096c7', fontSize:"2rem",fontFamily:"Comic Sans Ms", fontWeight:"bold", textDecoration:"none"}}>contact us</Link>
       </CardActions>
       </Card >
       <Card style={{backgroundColor:"#fae0e4", borderTop:"1rem solid #FAF9F6", borderBottom:"1rem solid #FAF9F6"}}>
