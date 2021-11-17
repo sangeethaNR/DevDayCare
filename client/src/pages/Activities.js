@@ -14,7 +14,7 @@ function Activities() {
   return (
     <React.Fragment>
     
-      <header style={{display:'flex', flexDirection:"row", justifyContent:"center", marginTop:"2rem"}}>
+      <header style={{display:'flex', flexDirection:"row", justifyContent:"center", marginTop:"2rem", fontFamily:"Comic Sans MS"}}>
         <h1>Activities Page</h1>
         <Link as={Link} to="/profile" style={{textDecoration:"none", margin:"1rem", border:"solid black .1vw", padding:".25rem", borderRadius:"1rem", backgroundColor:"lightblue", color:"black"}}>
           View Profile here
@@ -23,7 +23,7 @@ function Activities() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={10} style={{padding:"5rem"}}>
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }}   style={{backgroundColor:"pink", fontFamily:"Comic Sans Ms"}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -31,11 +31,11 @@ function Activities() {
                 alt="photos image"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{fontFamily:"Comic Sans Ms"}}>
                   Photos
                 </Typography>
-              </CardContent>
-              <CardActions>
+                </CardContent>
+              <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
               <Link as={Link} to={`/addPhotos/${itemId}`}>
                   Add/view
                 </Link>
@@ -46,7 +46,7 @@ function Activities() {
             </Card>
           </Grid>
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }} style={{backgroundColor:"pink", fontFamily:"Comic Sans Ms"}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -54,11 +54,11 @@ function Activities() {
                 alt="daily activities image"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{fontFamily:"Comic Sans Ms"}}>
                   Daily Activities
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/dailyActivities">
                   Add
                 </Link>
@@ -69,7 +69,7 @@ function Activities() {
             </Card>
           </Grid>
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }} style={{backgroundColor:"pink", fontFamily:"Comic Sans Ms"}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -77,11 +77,11 @@ function Activities() {
                 alt="food image"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{fontFamily:"Comic Sans Ms"}}>
                   Food
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
               <Link as={Link} to="/addFood">
                   Add
                 </Link>
@@ -92,7 +92,7 @@ function Activities() {
             </Card>
           </Grid>
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }} style={{backgroundColor:"pink", fontFamily:"Comic Sans Ms"}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -100,11 +100,11 @@ function Activities() {
                 alt="health info image"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{fontFamily:"Comic Sans Ms"}}>
                   Health Information
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/healthInfo">
                   Add
                 </Link>
@@ -115,7 +115,7 @@ function Activities() {
             </Card>
           </Grid>
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }} style={{backgroundColor:"pink", fontFamily:"Comic Sans Ms"}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -123,11 +123,11 @@ function Activities() {
                 alt="notes mage"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{fontFamily:"Comic Sans Ms"}}>
                   Notes
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/notes">
                   Add
                 </Link>
@@ -138,7 +138,7 @@ function Activities() {
             </Card>
           </Grid>
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }} style={{backgroundColor:"pink", fontFamily:"Comic Sans Ms"}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -146,11 +146,11 @@ function Activities() {
                 alt="incidents image"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{fontFamily:"Comic Sans Ms"}}>
                   Incident Reports
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/incidents">
                   Add
                 </Link>
