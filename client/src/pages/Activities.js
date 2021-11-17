@@ -14,9 +14,9 @@ function Activities() {
   return (
     <React.Fragment>
     
-      <header style={{display:'flex', flexDirection:"row"}}>
+      <header style={{display:'flex', flexDirection:"row", justifyContent:"center", marginTop:"2rem"}}>
         <h1>Activities Page</h1>
-        <Link as={Link} to="/profile" style={{textDecoration:"none"}}>
+        <Link as={Link} to="/profile" style={{textDecoration:"none", margin:"1rem", border:"solid black .1vw", padding:".25rem", borderRadius:"1rem", backgroundColor:"lightblue", color:"black"}}>
           View Profile here
         </Link>
       </header>
