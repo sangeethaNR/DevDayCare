@@ -82,7 +82,7 @@ function TeacherDashboard({ user_id }) {
 
   return (
     <React.Fragment>
-    <Container>
+    <Container style={{margin:"2rem"}}>
       {createRowsData()?.length && (
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 440 }}>

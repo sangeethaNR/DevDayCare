@@ -15,19 +15,30 @@ function TeacherDashboardPage() {
   const userDetails = data?.getTeacherProfile || {};
   return (
     <React.Fragment>
-      <Link as={Link} to="/addStudent" style={{textDecoration:"none", padding:"10px", fontFamily: "Comic Sans Ms", fontSize: "1.3rem", color:"black" }}>
-        Add Student
-      </Link>
-      {userDetails.is_active ? (
-        <TeacherDashboard user_id={user_id} />
-      ) : (
-        <h1>Your profile is inactive waiting for activation</h1>
-    
-      )}
-      {/* TO DO: add activities into logic for teacher profile and direct to each student by id */}
-      {/* <Link as={Link} to="/activities" style={{textDecoration:"none", padding:"10px", fontFamily: "Comic Sans Ms", fontSize: "1.3rem", color:"black" }}>
-        Activities
-      </Link> */}
+      <div style={{ border: "dotted pink 2vw", height: "100vh", padding:'2rem' }}>
+        {userDetails.is_active ? (
+          <TeacherDashboard user_id={user_id}/>
+        ) : (
+          <h1>Your profile is inactive waiting for activation</h1>
+        )}
+        <Link
+          as={Link}
+          to="/addStudent"
+          style={{
+            textDecoration: "none",
+            fontFamily: "Comic Sans Ms",
+            fontSize: "1.3rem",
+            color: "black",
+            border: "solid black .1vw",
+            padding: ".25rem",
+            borderRadius: "1rem",
+            backgroundColor: "lightblue",
+            margin: "5rem",
+          }}
+        >
+          Add Student
+        </Link>
+      </div>
     </React.Fragment>
   );
 }
