@@ -1,4 +1,4 @@
-import React,{useState} from "react"; 
+import React,{useEffect, useState} from "react"; 
 import Axios from "axios"
 import {Image} from "cloudinary-react"
 import { set } from "mongoose";
@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
 
 // TO DO:add logic to upload photo
 
-function AddPhoto() {
+  const AddPhoto = () =>{
   const cards = [1, 2, 3];
 
 const theme = createTheme();
@@ -76,13 +76,16 @@ const theme = createTheme();
     }
   );
   const photos = data?.getPhotos  || [];
-   console.log('photos:' + photos)
+   console.log('photos:' + JSON.stringify(photos));
   const [addPhotoMutation] = useMutation(ADD_PHOTO)
 
 const[imageSelected,setImageSelected] = useState("")
 const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const [saveImage,setSaveImage] = useState({student_id:itemId,
+    imageUrl:''});
+  
   const handleOpen = () => {
       setOpen(true);
   };
@@ -90,42 +93,73 @@ const classes = useStyles();
   const handleClose = () => {
       setOpen(false);
   };
-const [saveImage,setSaveImage] = useState({student_id:itemId,
-imageUrl:''});
 
-const uploadImage= async () =>{
+
+const uploadImage=  (event) =>{
+  event.preventDefault()
   const formData = new FormData();
   formData.append("file",imageSelected);
   formData.append("upload_preset","vpdvr4v6");
-   await Axios.post("https://api.cloudinary.com/v1_1/dhcq7qcuc/image/upload",
+    Axios.post("https://api.cloudinary.com/v1_1/dhcq7qcuc/image/upload",
   formData)
   .then((response)=> {
     console.log(response.data.url)
-  const ImageUrl ='imageUrl'
-    setSaveImage({...saveImage,[ImageUrl]:response.data.url})
-      saveImagetoDB();
+
+    setSaveImage({...saveImage,'imageUrl':response.data.url})
+    console.log('url:' +saveImage )
+      // saveImagetoDB();
+    
   });
   
 };
-const  saveImagetoDB = async() =>{
-  try{
-    console.log("saveImage:" + JSON.stringify(saveImage) )
-  const {data} = await addPhotoMutation({variables:{...saveImage}});
-  console.log(data);
-  if (!data) {
-
-    throw new Error("something went wrong!");
+useEffect(() => {
+  // Update the document title using the browser API
+  //saveImagetoDB();
+  console.log('inside useEffect');
+  async function saveImagetoDB (){
+    console.log("coming")
+    try{
+      console.log("saveImage:" + JSON.stringify(saveImage) )
+    const {data} = await addPhotoMutation({variables:{...saveImage}});
+    console.log(JSON.stringify(data));
+    if (!data) {
+  
+      throw new Error("something went wrong!");
+     
+    }
+  handleOpen()
+  
    
+  } catch (err) {
+  console.error(err);
   }
-handleOpen()
+  
+  }
+  saveImagetoDB();
+
+
+},[saveImage]);
+// const  saveImagetoDB = async() =>{
+//   console.log("coming")
+//   try{
+//     console.log("saveImage:" + JSON.stringify(saveImage) )
+//   const {data} = await addPhotoMutation({variables:{...saveImage}});
+//   console.log(JSON.stringify(data));
+//   if (!data) {
+
+//     throw new Error("something went wrong!");
+   
+//   }
+// handleOpen()
+
  
-} catch (err) {
-console.error(err);
+// } catch (err) {
+// console.error(err);
 
 
-}
+// }
 
-}
+// }
 
     return (
   
@@ -172,7 +206,7 @@ console.error(err);
           {/* End hero unit */}
           <Grid container spacing={4}>
             {photos.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card._id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -210,7 +244,7 @@ console.error(err);
 
       <label for="desc">Add Photo</label>
      <input name ="fileInput" type="file" onChange={(event) =>{setImageSelected(event.target.files[0])}}></input>
-      <button style={{maxWidth:"6rem", height:"4rem", marginRight:"1rem"}} onClick={uploadImage}>Upload Image</button>
+      <button style={{maxWidth:"6rem", height:"4rem", marginRight:"1rem"}} onClick={(event) =>{uploadImage(event)}}>Upload Image</button>
       {/* <Image cloudName= "dhcq7qcuc" publicId=""/> */}
     
       <Modal
