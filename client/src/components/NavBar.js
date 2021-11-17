@@ -20,7 +20,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar variant="light" expand="lg" className="brand" >
+      <Navbar variant="light" expand="lg" className="brand">
         <Container
           fluid
           style={{ fontFamily: "Comic Sans Ms", fontSize: "1.3rem" }}
@@ -74,10 +74,12 @@ const AppNavbar = () => {
                     if (userDetails && !userDetails.is_admin) {
                       return (
                         <>
+                        <div style={{display:'flex', justifyContent:"column"}}>
                           <Nav.Link as={Link} to="/teacherDashboard">
                             Teacher Dashboard
                           </Nav.Link>
                           <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                          </div>
                         </>
                       );
                     } else {
@@ -93,6 +95,7 @@ const AppNavbar = () => {
                   } else {
                     return (
                       <>
+                      <div style={{display:'flex', justifyContent:"column"}}>
                         <Nav.Link
                           onClick={() => {
                             setShowModal(true);
@@ -107,6 +110,7 @@ const AppNavbar = () => {
                         >
                           Teacher's Portal
                         </Nav.Link>
+                        </div>
                       </>
                     );
                   }
