@@ -73,3 +73,4 @@ query getPhotos($student_id:String){
   }
 }
 `;
+

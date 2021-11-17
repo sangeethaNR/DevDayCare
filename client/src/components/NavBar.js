@@ -12,8 +12,6 @@ const AppNavbar = (props) => {
   //const {isTeacher,handleDashboardView} = useDashboard();
   const pathname = props.location.pathname;
   const userDetails = Auth.getProfile()?.data;
-  console.log(Auth.getProfile());
-  console.log(props.location.pathname, "props");
 
   // set modal display state
   const [isTeacher, setIsTeacher] = useState(false);

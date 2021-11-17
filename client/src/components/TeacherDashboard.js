@@ -67,7 +67,6 @@ function TeacherDashboard({ user_id }) {
   const createRowsData = () => {
     if (classRooms[0] && classRooms[0].students.length) {
       return classRooms[0].students.map((item) => {
-        console.log(renderParentColumn(item.parents));
 
         return createData(
           item.name,
