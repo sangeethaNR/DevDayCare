@@ -205,8 +205,9 @@ const typeDefs = gql`
  type Food{
   mealSession :String!
   day:String
-  time:String
   mealDesc:String!
+  _id :ID
+  student_id :String
  }
   type MedicationTypes {
     medName: String!
@@ -234,6 +235,7 @@ const typeDefs = gql`
     getStudentMedicalInfo(id: String!): Student
     getPhotos(student_id: String) : [Photo]
     getActivities(student_id: String) :[Activity]
+    getFood(student_id: String) :[Food]
   }
   type Mutation {
     login(email: String!, password: String!): Auth
@@ -248,8 +250,8 @@ const typeDefs = gql`
     addStudentIncidentReports(incidentReportInput: IncidentReportInput!): IncidentReport
     addStudentMedication(medication: MedicationInput!, student_id: String!): Student
     addClassRooms(className : String!): classRoom
-    addFood(mealSession:String!,mealDesc:String!):Food
-    addActivity(activityType:String!,desc:String!,student_id:String,day:String):Activity
+    addFood(mealSession:String!,mealDesc:String!,student_id: String):Food
+    addActivity(activityType:String!,desc:String!,student_id:String):Activity
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   addPhoto(student_id: String,imageUrl: String!,desc: String):Photo
   }

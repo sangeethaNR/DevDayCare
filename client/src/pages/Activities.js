@@ -81,7 +81,7 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
-              <Link as={Link} to="/addFood">
+              <Link as={Link} to={`/addFood/${itemId}`}>
                   Add/View
                 </Link>
                 {/* <Link as={Link} to="/food">
