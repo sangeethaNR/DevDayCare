@@ -2,16 +2,18 @@ import React, { useState, useContext } from "react";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import LoginForm from "./LoginForm";
 import TeacherSignUpForm from "./TeachersForm/SignupForm";
-import { Link, useParams, Redirect } from "react-router-dom";
+import { Link, useParams, Redirect, withRouter } from "react-router-dom";
 import { useDashboard } from "../components/AppContext";
 import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 
-const AppNavbar = () => {
+const AppNavbar = (props) => {
   // const { is_teacher: userParam } = useParams();
   //const {isTeacher,handleDashboardView} = useDashboard();
+  const pathname = props.location.pathname;
   const userDetails = Auth.getProfile()?.data;
   console.log(Auth.getProfile());
+  console.log(props.location.pathname, "props");
 
   // set modal display state
   const [isTeacher, setIsTeacher] = useState(false);
@@ -20,20 +22,21 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar variant="light" expand="lg" className="brand">
-        <Container
-          fluid
-          style={{ fontFamily: "Comic Sans Ms", fontSize: "1.3rem" }}
-        >
-          {/* TO DO:link to home page */}
-          <Navbar.Brand>
-            <h1>Blossom Babies</h1>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar">
-            <Nav className="ml-auto">
-              {/* if user is logged in show dashboard and logout */}
-              {/* {Auth.loggedIn() ? (
+      {pathname !== "/teacherDashboard" && pathname !== "/adminDashboard" && (
+        <Navbar variant="light" expand="lg" className="brand">
+          <Container
+            fluid
+            style={{ fontFamily: "Comic Sans Ms", fontSize: "1.3rem" }}
+          >
+            {/* TO DO:link to home page */}
+            <Navbar.Brand>
+              <h1>Blossom Babies</h1>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbar" />
+            <Navbar.Collapse id="navbar">
+              <Nav className="ml-auto">
+                {/* if user is logged in show dashboard and logout */}
+                {/* {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to="/adminDashboard">
                     Dashboard
@@ -51,9 +54,8 @@ const AppNavbar = () => {
                 </>
               )} */}
 
-
-              <div>
-                {/* {userDetails?.is_admin ? (
+                <div>
+                  {/* {userDetails?.is_admin ? (
                   <>
                     <Nav.Link as={Link} to="/adminDashboard">
                       Admin Dashboard
@@ -68,60 +70,77 @@ const AppNavbar = () => {
                     <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                   </>
                 )} */}
-                {(() => {
-                  if (Auth.loggedIn()) {
-                    console.log("showTeacherModal:" + showTeacherModal);
-                    if (userDetails && !userDetails.is_admin) {
-                      return (
-                        <>
-                        <div style={{display:'flex', justifyContent:"column"}}>
-                          <Nav.Link as={Link} to="/teacherDashboard">
-                            Teacher Dashboard
-                          </Nav.Link>
-                          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                          </div>
-                        </>
-                      );
+                  {(() => {
+                    if (Auth.loggedIn()) {
+                      console.log("showTeacherModal:" + showTeacherModal);
+                      if (userDetails && !userDetails.is_admin) {
+                        return (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "column",
+                              }}
+                            >
+                              <Nav.Link as={Link} to="/teacherDashboard">
+                                Teacher Dashboard
+                              </Nav.Link>
+                              <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                            </div>
+                          </>
+                        );
+                      } else {
+                        return (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "column",
+                              }}
+                            >
+                              <Nav.Link as={Link} to="/adminDashboard">
+                                Admin Dashboard
+                              </Nav.Link>
+                              <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                            </div>
+                          </>
+                        );
+                      }
                     } else {
                       return (
                         <>
-                         <div style={{display:'flex', justifyContent:"column"}}>
-                          <Nav.Link as={Link} to="/adminDashboard">
-                            Admin Dashboard
-                          </Nav.Link>
-                          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "column",
+                            }}
+                          >
+                            <Nav.Link
+                              onClick={() => {
+                                setShowModal(true);
+                              }}
+                            >
+                              Admin Portal
+                            </Nav.Link>
+                            <Nav.Link
+                              onClick={() => {
+                                setShowTeacherModal(true);
+                              }}
+                            >
+                              Teacher Portal
+                            </Nav.Link>
                           </div>
                         </>
                       );
                     }
-                  } else {
-                    return (
-                      <>
-                      <div style={{display:'flex', justifyContent:"column"}}>
-                        <Nav.Link
-                          onClick={() => {
-                            setShowModal(true);
-                          }}
-                        >
-                          Admin Portal
-                        </Nav.Link>
-                        <Nav.Link
-                          onClick={() => {
-                            setShowTeacherModal(true);
-                          }}
-                        >
-                          Teacher Portal
-                        </Nav.Link>
-                        </div>
-                      </>
-                    );
-                  }
-                })()}
-              </div>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+                  })()}
+                </div>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      )}
+
       {/* set admin modal data up */}
       <Modal
         size="lg"
@@ -148,7 +167,10 @@ const AppNavbar = () => {
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey="login">
-                <LoginForm handleModalClose={() => setShowModal(false)} adminLogin={true}/>
+                <LoginForm
+                  handleModalClose={() => setShowModal(false)}
+                  adminLogin={true}
+                />
               </Tab.Pane>
               <Tab.Pane eventKey="signup">
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
@@ -203,4 +225,4 @@ const AppNavbar = () => {
   );
 };
 
-export default AppNavbar;
+export default withRouter(AppNavbar);
