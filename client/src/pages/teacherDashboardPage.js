@@ -21,6 +21,7 @@ function TeacherDashboardPage() {
         ) : (
           <h1>Your profile is inactive waiting for activation</h1>
         )}
+        <div style={{display:"flex", flexDirection:"row", justifyContent:"space-evenly"}}>
         <Link
           as={Link}
           to="/addStudent"
@@ -55,6 +56,7 @@ function TeacherDashboardPage() {
         >
           Add Classroom
         </Link>
+        </div>
       </div>
     </React.Fragment>
   );
