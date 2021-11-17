@@ -85,10 +85,12 @@ const AppNavbar = () => {
                     } else {
                       return (
                         <>
+                         <div style={{display:'flex', justifyContent:"column"}}>
                           <Nav.Link as={Link} to="/adminDashboard">
                             Admin Dashboard
                           </Nav.Link>
                           <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                          </div>
                         </>
                       );
                     }
@@ -108,7 +110,7 @@ const AppNavbar = () => {
                             setShowTeacherModal(true);
                           }}
                         >
-                          Teacher's Portal
+                          Teacher Portal
                         </Nav.Link>
                         </div>
                       </>
