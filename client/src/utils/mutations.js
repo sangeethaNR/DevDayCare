@@ -127,3 +127,14 @@ mutation addStudent($studentInput: StudentInput!, $class_id: String!) {
   }
 }
 `
+export const ADD_ACTIVITY = gql`
+mutation addActivity($activityType:String!,$day:String,$desc:String!,$student_id:String) {
+addActivity(activityType:$activityType,day:$day,desc:$desc,student_id:$student_id)
+{
+  activityType
+  day
+  desc
+  student_id
+}
+}
+`

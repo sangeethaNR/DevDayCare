@@ -78,7 +78,7 @@ function App() {
               <Route exact path="/addPhotos/:itemId" component={AddPhoto} />
               <Route
                 exact
-                path="/dailyActivities"
+                path="/dailyActivities/:itemId"
                 component={DailyActivities}
               />
               <Route

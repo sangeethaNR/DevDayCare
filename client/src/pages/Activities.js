@@ -37,7 +37,7 @@ function Activities() {
                 </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
               <Link as={Link} to={`/addPhotos/${itemId}`}>
-                  Add/view
+                  Add/View
                 </Link>
                 {/* <Link as={Link}  to={`photos/${itemId}`}>
                   View
@@ -59,12 +59,10 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
-                <Link as={Link} to="/dailyActivities">
-                  Add
+                <Link as={Link} to={`/dailyActivities/${itemId}`}>
+                  Add/View
                 </Link>
-                <Link as={Link} to="/dailyActivitiesHistory">
-                  View
-                </Link>
+              
               </CardActions>
             </Card>
           </Grid>

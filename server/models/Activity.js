@@ -17,7 +17,13 @@ const ActivitySchema = new Schema({
   desc: {
     type: String,
     required: true,
-  }
+  },
+  student_id:
+  {
+      type: Schema.Types.ObjectId, 
+      ref: 'Profile'
+  },
+
 });
 
 const Activity = mongoose.model("Activity", ActivitySchema);
