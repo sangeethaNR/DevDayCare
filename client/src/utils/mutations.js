@@ -76,13 +76,50 @@ export const LOGIN_TEACHER = gql`
   }
 `;
 
-
 export const ADD_PHOTO = gql`
-mutation addPhoto($student_id: String, $imageUrl: String!){
-  addPhoto(student_id:$student_id,imageUrl:$imageUrl){
-    student_id
-    imageUrl
-    day
+  mutation addPhoto($student_id: String, $imageUrl: String!) {
+    addPhoto(student_id: $student_id, imageUrl: $imageUrl) {
+      student_id
+      imageUrl
+      day
+    }
+  }
+`;
+
+export const CREATE_CLASS = gql`
+  mutation createClass($teacher_id: String!, $className: String!) {
+    createClass(teacher_id: $teacher_id, className: $className) {
+      className
+      teachers {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_STUDENT = gql`
+mutation addStudent($studentInput: StudentInput!, $class_id: String!) {
+  addStudent(studentInput: $studentInput, class_id: $class_id){
+    _id
+    name
+    dateOfBirth
+    allergy
+    parents {
+      parentName
+    }
+    emergencyContact {
+      contactPerson
+    }
+    physician {
+      physicianName
+      phoneNo
+    }
+    medications {
+      medName
+    }
+    mealPlans {
+      mealSession
+    }
   }
 }
-`;
+`

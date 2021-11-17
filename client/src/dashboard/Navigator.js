@@ -1,69 +1,79 @@
-import * as React from 'react';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Box from '@mui/material/Box';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import HomeIcon from '@mui/icons-material/Home';
-import PeopleIcon from '@mui/icons-material/People';
-import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
-import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActual';
-import PublicIcon from '@mui/icons-material/Public';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
-import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
-import TimerIcon from '@mui/icons-material/Timer';
-import SettingsIcon from '@mui/icons-material/Settings';
-import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
-import { NavLink } from 'react-router-dom';
-
-const categories = [
-  {
-    id: 'Build',
-    children: [
-      {
-        id: <NavLink to="/addStudent">Activities</NavLink>,
-        icon: <PublicIcon />,
-        active: true,
-      },
-      { id: <NavLink to="/addClassroom">Add Class</NavLink>, icon: <DnsRoundedIcon /> },
-      { id: <NavLink to="/addStudent">Add Student</NavLink>, icon: <PermMediaOutlinedIcon /> },
-    ],
-  },
-  {
-    id: 'Quality',
-    children: [
-      { id: 'Class1', icon: <SettingsIcon /> },
-      { id: 'Class2', icon: <TimerIcon /> },
-      { id: 'Class 3', icon: <PhonelinkSetupIcon /> },
-    ],
-  },
-];
+import * as React from "react";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Box from "@mui/material/Box";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import HomeIcon from "@mui/icons-material/Home";
+import PeopleIcon from "@mui/icons-material/People";
+import DnsRoundedIcon from "@mui/icons-material/DnsRounded";
+import PermMediaOutlinedIcon from "@mui/icons-material/PhotoSizeSelectActual";
+import PublicIcon from "@mui/icons-material/Public";
+import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
+import SettingsInputComponentIcon from "@mui/icons-material/SettingsInputComponent";
+import TimerIcon from "@mui/icons-material/Timer";
+import SettingsIcon from "@mui/icons-material/Settings";
+import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
+import { NavLink } from "react-router-dom";
+import { AppContext } from "../components/AppContext";
 
 const item = {
-  py: '2px',
+  py: "2px",
   px: 3,
-  color: 'rgba(255, 255, 255, 0.7)',
-  '&:hover, &:focus': {
-    bgcolor: 'rgba(255, 255, 255, 0.08)',
+  color: "rgba(255, 255, 255, 0.7)",
+  "&:hover, &:focus": {
+    bgcolor: "rgba(255, 255, 255, 0.08)",
   },
 };
 
 const itemCategory = {
-  boxShadow: '0 -1px 0 rgb(255,255,255,0.1) inset',
+  boxShadow: "0 -1px 0 rgb(255,255,255,0.1) inset",
   py: 1.5,
   px: 3,
 };
 
 export default function Navigator(props) {
   const { ...other } = props;
+  const { classInfo } = React.useContext(AppContext);
+  const categories = [
+    {
+      id: "Build",
+      children: [
+        {
+          id: <NavLink to="/activities/:itemId">Activities</NavLink>,
+          icon: <PublicIcon />,
+          active: true,
+        },
+        {
+          id: <NavLink to="/addClassroom">Add Class</NavLink>,
+          icon: <DnsRoundedIcon />,
+        },
+        {
+          id: <NavLink to="/addStudent">Add Student</NavLink>,
+          icon: <PermMediaOutlinedIcon />,
+        },
+      ],
+    },
+    {
+      id: "Classes",
+      children: classInfo.map((i) => ({
+        id: i.className,
+        icon: <SettingsIcon />,
+      })),
+    },
+  ];
+
+  console.log(classInfo, "info");
 
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
-        <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
+        <ListItem
+          sx={{ ...item, ...itemCategory, fontSize: 22, color: "#fff" }}
+        >
           Blossom Babies
         </ListItem>
         <ListItem sx={{ ...item, ...itemCategory }}>
@@ -73,9 +83,9 @@ export default function Navigator(props) {
           <ListItemText>Teacher's Dashboard</ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: '#101F33' }}>
+          <Box key={id} sx={{ bgcolor: "#101F33" }}>
             <ListItem sx={{ py: 2, px: 3 }}>
-              <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
+              <ListItemText sx={{ color: "#fff" }}>{id}</ListItemText>
             </ListItem>
             {children.map(({ id: childId, icon, active }) => (
               <ListItem disablePadding key={childId}>
