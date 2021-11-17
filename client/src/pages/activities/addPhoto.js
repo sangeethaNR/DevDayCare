@@ -64,8 +64,7 @@ const useStyles = makeStyles(theme => ({
 // TO DO:add logic to upload photo
 
   const AddPhoto = () =>{
-  const cards = [1, 2, 3];
-
+ 
 const theme = createTheme();
   const {itemId} = useParams()
   console.log('item:'+ itemId)
@@ -92,6 +91,7 @@ const classes = useStyles();
 
   const handleClose = () => {
       setOpen(false);
+      window.location.reload(true)
   };
 
 
@@ -139,27 +139,7 @@ useEffect(() => {
 
 
 },[saveImage]);
-// const  saveImagetoDB = async() =>{
-//   console.log("coming")
-//   try{
-//     console.log("saveImage:" + JSON.stringify(saveImage) )
-//   const {data} = await addPhotoMutation({variables:{...saveImage}});
-//   console.log(JSON.stringify(data));
-//   if (!data) {
 
-//     throw new Error("something went wrong!");
-   
-//   }
-// handleOpen()
-
- 
-// } catch (err) {
-// console.error(err);
-
-
-// }
-
-// }
 
     return (
   
