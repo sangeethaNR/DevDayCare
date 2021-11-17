@@ -16,11 +16,10 @@ const theme = createTheme();
 export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
-      <main>
+      <main style={{ border: "dotted pink 2vw", height: "100vh", padding:'2rem'}}>
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 8,
             pb: 6,
           }}
         >
@@ -38,12 +37,12 @@ export default function Profile() {
             </Typography>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container  maxWidth="md" >
           {/* End hero unit */}
           <Grid container spacing={4}>
               <Grid item xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{ height: '93%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
@@ -56,7 +55,7 @@ export default function Profile() {
                   />
                       {/* TODO: Append Data */}
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2" noWrap="false" >
+                    <Typography gutterBottom variant="h5" component="h2" noWrap="false" style={{fontSize:"1rem", fontFamily:"Comic Sans Ms"}}>
                       First Last                  
                       <br />
                       Birthdate: 02/28/2014
@@ -72,20 +71,16 @@ export default function Profile() {
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{ height: '93%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
-                    sx={{
-                      // 16:9
-                      pt: '10%',
-                    }}
-                    image="https://lh3.googleusercontent.com/proxy/Ng574Ggi8sT-YwUqsd143PyKkqIRyf7p_SRG2fiApF-y-5hoiNO7Dh571hqXMUEf21yLt-wQKR6KtE2THcpxTRjfbs0VgRXvinuKdSnVWBL89Y23FnmpckNvSfYlHv6nrvjXcF4eJNiGAIgUi69bmENs1Y7r"
+                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnU8HTonl-fPgwJnsnfdZ_oJ0v4Oifw0ZzfA&usqp=CAU"
                     alt="Parents Photo"
                   
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h2" style={{fontSize:"1rem", fontFamily:"Comic Sans Ms"}}>
                       John Doe
                       <br />
                       Relation: Father
@@ -101,7 +96,7 @@ export default function Profile() {
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{ height: '93%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
@@ -113,7 +108,7 @@ export default function Profile() {
                     alt="In Case of Emergency"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h2" style={{fontSize:"1rem", fontFamily:"Comic Sans Ms"}}>
                       Emergency Contact
                     </Typography>
                   </CardContent>
