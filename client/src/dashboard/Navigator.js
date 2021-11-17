@@ -7,18 +7,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
-import PeopleIcon from "@mui/icons-material/People";
-import DnsRoundedIcon from "@mui/icons-material/DnsRounded";
-import PermMediaOutlinedIcon from "@mui/icons-material/PhotoSizeSelectActual";
-import PublicIcon from "@mui/icons-material/Public";
-import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
-import SettingsInputComponentIcon from "@mui/icons-material/SettingsInputComponent";
-import TimerIcon from "@mui/icons-material/Timer";
-import SettingsIcon from "@mui/icons-material/Settings";
-import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../components/AppContext";
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import SchoolIcon from '@mui/icons-material/School';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const item = {
   py: "2px",
@@ -40,20 +35,20 @@ export default function Navigator(props) {
   const { classInfo } = React.useContext(AppContext);
   const categories = [
     {
-      id: "Build",
+      id: "Links",
       children: [
         {
           id: <NavLink to="/activities/:itemId">Activities</NavLink>,
-          icon: <PublicIcon />,
+          icon: <DirectionsRunIcon />,
           active: true,
         },
         {
           id: <NavLink to="/addClassroom">Add Class</NavLink>,
-          icon: <DnsRoundedIcon />,
+          icon: <MenuBookIcon />,
         },
         {
           id: <NavLink to="/addStudent">Add Student</NavLink>,
-          icon: <PermMediaOutlinedIcon />,
+          icon: <PersonAddIcon />,
         },
       ],
     },
@@ -61,7 +56,7 @@ export default function Navigator(props) {
       id: "Classes",
       children: classInfo.map((i) => ({
         id: i.className,
-        icon: <SettingsIcon />,
+        icon: <SchoolIcon />,
       })),
     },
   ];
@@ -78,9 +73,10 @@ export default function Navigator(props) {
         </ListItem>
         <ListItem sx={{ ...item, ...itemCategory }}>
           <ListItemIcon>
-            <HomeIcon />
+            <LogoutIcon />
           </ListItemIcon>
-          <ListItemText>Teacher's Dashboard</ListItemText>
+          {/* Need link to log out */}
+          <ListItemText>Log Out</ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33" }}>

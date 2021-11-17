@@ -3,7 +3,7 @@ import * as React from "react";
 function HealthInfo() {
   return (
     <form>
-      <div class="form-box">
+      <div class="form-box"style={{border: "dotted pink 2vw"}}>
         <label for="medications">Medication Info</label>
         <input placeholder="Medication" maxlength="28" type="text" />
         <input placeholder="Dosage" maxlength="28" type="text" />
