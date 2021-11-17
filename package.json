@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "cloudinary-react": "^1.7.0",
-    "mongoose": "^6.0.12"
+    "mongoose": "^6.0.12",
+    "rn-material-ui-textfield": "^1.0.5"
   }
 }

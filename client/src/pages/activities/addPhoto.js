@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import {useQuery,useMutation} from "@apollo/client"
 import {ADD_PHOTO} from '../../utils/mutations'
 import Alert from '@material-ui/lab/Alert';
+import { TextField } from "@material-ui/core";
 import AlertTitle from '@material-ui/lab/AlertTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -77,13 +78,14 @@ const theme = createTheme();
   const photos = data?.getPhotos  || [];
    console.log('photos:' + JSON.stringify(photos));
   const [addPhotoMutation] = useMutation(ADD_PHOTO)
-
+const [desc,setDesc] = useState("");
 const[imageSelected,setImageSelected] = useState("")
 const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
   const [saveImage,setSaveImage] = useState({student_id:itemId,
-    imageUrl:''});
+    imageUrl:'',
+  desd:''});
   
   const handleOpen = () => {
       setOpen(true);
@@ -94,7 +96,13 @@ const classes = useStyles();
       window.location.reload(true)
   };
 
-
+  // const handleChange =(event) => {
+  //  setDesc(event.target.value)
+  //   console.log("handleChange:" + desc)
+  // };
+  const handleChange= () =>{
+    console.log('here' )
+  }
 const uploadImage=  (event) =>{
   event.preventDefault()
   const formData = new FormData();
@@ -103,9 +111,9 @@ const uploadImage=  (event) =>{
     Axios.post("https://api.cloudinary.com/v1_1/dhcq7qcuc/image/upload",
   formData)
   .then((response)=> {
-    console.log(response.data.url)
+    console.log("response.data.url:" + response.data.url)
 
-    setSaveImage({...saveImage,'imageUrl':response.data.url})
+    setSaveImage({...saveImage,'imageUrl':response.data.url,'desc':desc})
     console.log('url:' +saveImage )
       // saveImagetoDB();
     
@@ -201,6 +209,11 @@ useEffect(() => {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
+                      {card.desc}
+                   
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                     
                     {card.day}
                     </Typography>
                   </CardContent>
@@ -221,8 +234,10 @@ useEffect(() => {
     </ThemeProvider>
   
            ):( <h3> No Photos to display </h3>)}
+<TextField id="photoDesc" label="Description" variant="outlined" value={desc}
+   onChange={(e) => setDesc(e.target.value)} />
 
-      <label for="desc">Add Photo</label>
+      <label for="addPhoto">Add Photo</label>
      <input name ="fileInput" type="file" onChange={(event) =>{setImageSelected(event.target.files[0])}}></input>
       <button style={{maxWidth:"6rem", height:"4rem", marginRight:"1rem"}} onClick={(event) =>{uploadImage(event)}}>Upload Image</button>
       {/* <Image cloudName= "dhcq7qcuc" publicId=""/> */}

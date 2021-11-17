@@ -69,6 +69,7 @@ query getPhotos($student_id:String){
     student_id
     imageUrl
     day
+    desc
   }
 }
 `;
