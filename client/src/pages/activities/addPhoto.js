@@ -163,14 +163,12 @@ useEffect(() => {
         >
           <Container maxWidth="sm">
             <Typography
-              component="h1"
               variant="h2"
-              align="center"
               color="text.primary"
               fontFamily="Comic Sans Ms"
               gutterBottom
             >
-             Student Photos ...
+             Student Photos
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -178,41 +176,28 @@ useEffect(() => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained"
-              color = "secondary"
-              >View/Sort
-                <Select> 
-                  <MenuItem>Day</MenuItem>
-                  <MenuItem>Month</MenuItem>
-                  <MenuItem>Year</MenuItem>
-                </Select>
-              </Button>
             </Stack>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container>
           {/* End hero unit */}
           <Grid container spacing={4}>
             {photos.map((card) => (
-              <Grid item key={card._id} xs={12} sm={6} md={4}>
+              <Grid item key={card._id} xs={6} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{ height: '50%', display: 'flex', flexDirection: 'column', width:"200%" }}
                 >
                   <CardMedia
                     component="img"
-                    sx={{
-                      // 16:9
-                      pt: '10%',
-                    }}
                     image={card.imageUrl}
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h5">
                       {card.desc}
                    
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h5">
                      
                     {card.day}
                     </Typography>
@@ -235,7 +220,7 @@ useEffect(() => {
   
            ):( <h3> No Photos to display </h3>)}
 <TextField id="photoDesc" label="Description" variant="outlined" value={desc}
-   onChange={(e) => setDesc(e.target.value)} />
+   onChange={(e) => setDesc(e.target.value)} style={{margin:"1rem"}}/>
 
       <label for="addPhoto">Add Photo</label>
      <input name ="fileInput" type="file" onChange={(event) =>{setImageSelected(event.target.files[0])}}></input>
