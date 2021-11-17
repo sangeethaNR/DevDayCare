@@ -60,11 +60,11 @@ function Activities() {
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/dailyActivities">
-                  Add
+                  Add/View
                 </Link>
-                <Link as={Link} to="/dailyActivitiesHistory">
+                {/* <Link as={Link} to="/dailyActivitiesHistory">
                   View
-                </Link>
+                </Link> */}
               </CardActions>
             </Card>
           </Grid>
@@ -83,11 +83,11 @@ function Activities() {
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
               <Link as={Link} to="/addFood">
-                  Add
+                  Add/View
                 </Link>
-                <Link as={Link} to="/food">
+                {/* <Link as={Link} to="/food">
                   View
-                </Link>
+                </Link> */}
               </CardActions>
             </Card>
           </Grid>
@@ -106,11 +106,11 @@ function Activities() {
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/healthInfo">
-                  Add
+                  Add/View
                 </Link>
-                <Link as={Link} to="/healthHistory">
+                {/* <Link as={Link} to="/healthHistory">
                   View
-                </Link>
+                </Link> */}
               </CardActions>
             </Card>
           </Grid>
@@ -129,11 +129,11 @@ function Activities() {
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/notes">
-                  Add
+                  Add/View
                 </Link>
-                <Link as={Link} to="/noteHistory">
+                {/* <Link as={Link} to="/noteHistory">
                   View
-                </Link>
+                </Link> */}
               </CardActions>
             </Card>
           </Grid>
@@ -152,11 +152,11 @@ function Activities() {
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
                 <Link as={Link} to="/incidents">
-                  Add
+                  Add/View
                 </Link>
-                <Link as={Link} to="/incidentHistory">
+                {/* <Link as={Link} to="/incidentHistory">
                   View
-                </Link>
+                </Link> */}
               </CardActions>
             </Card>
           </Grid>
