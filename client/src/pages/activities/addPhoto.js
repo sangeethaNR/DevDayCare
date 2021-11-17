@@ -197,10 +197,6 @@ useEffect(() => {
                       {card.desc}
                    
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h5">
-                     
-                    {card.day}
-                    </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small">View</Button>
