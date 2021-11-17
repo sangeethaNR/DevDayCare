@@ -71,6 +71,16 @@ const resolvers = {
         throw new AuthenticationError("No photo associated with the student!");
       }
       return photo;
+    },
+    getActivities:async(parent,{ student_id },context) =>{
+     
+      const activity = Activity.find({student_id: student_id})
+      
+      console.log(activity)
+      if (!activity) {
+        throw new AuthenticationError("No photo associated with the student!");
+      }
+      return activity;
     }
   },
 
@@ -154,9 +164,9 @@ return teacher
       const food = await Food.create( {mealSession,mealDesc});
 return food
     },
-    addActivity:async (parent, {activityType,desc}) => {
+    addActivity:async (parent, {activityType,desc,student_id,day}) => {
 
-      const activity = await Activity.create( {activityType,desc});
+      const activity = await Activity.create( {activityType,desc,student_id,day});
 return activity
     },
     addPhoto:async (parent, {student_id,imageUrl,desc}) => {

@@ -200,6 +200,7 @@ const typeDefs = gql`
  day:String
   desc:String!
   _id: ID!
+  student_id : String
  }
  type Food{
   mealSession :String!
@@ -232,6 +233,7 @@ const typeDefs = gql`
     getAllTeachersForAdmin: [Teacher]
     getStudentMedicalInfo(id: String!): Student
     getPhotos(student_id: String) : [Photo]
+    getActivities(student_id: String) :[Activity]
   }
   type Mutation {
     login(email: String!, password: String!): Auth
@@ -247,7 +249,7 @@ const typeDefs = gql`
     addStudentMedication(medication: MedicationInput!, student_id: String!): Student
     addClassRooms(className : String!): classRoom
     addFood(mealSession:String!,mealDesc:String!):Food
-    addActivity(activityType:String!,desc:String!):Activity
+    addActivity(activityType:String!,desc:String!,student_id:String,day:String):Activity
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   addPhoto(student_id: String,imageUrl: String!,desc: String):Photo
   }

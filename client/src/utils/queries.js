@@ -74,3 +74,14 @@ query getPhotos($student_id:String){
 }
 `;
 
+export const QUERY_ACTIVITY = gql`
+query getActivities($student_id:String){
+  getActivities(student_id : $student_id){
+    _id
+    student_id
+    day
+    desc
+    activityType
+  }
+}
+`;
