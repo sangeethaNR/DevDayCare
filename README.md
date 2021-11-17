@@ -8,7 +8,7 @@
 
 ```md
 AS an Admin for a Daycare Center
-I WANT a platform to use where I can activite/deactive Teacher's
+I WANT a platform to use where I can activite/deactive teacher accounts
 SO THAT I can easily manage who has access to the daycare data
 ```
 
