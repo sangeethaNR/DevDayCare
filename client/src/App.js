@@ -87,7 +87,7 @@ function App() {
                 component={DailyActivitiesHistory}
               />
               <Route exact path="/food" component={Food} />
-              <Route exact path="/addFood" component={AddFood} />
+              <Route exact path="/addFood/:itemId" component={AddFood} />
               <Route exact path="/healthInfo" component={HealthInfo} />
               <Route exact path="/healthHistory" component={HealthHistory} />
               <Route exact path="/notes" component={Notes} />

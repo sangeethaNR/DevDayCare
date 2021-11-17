@@ -78,9 +78,19 @@ const resolvers = {
       
       console.log(activity)
       if (!activity) {
-        throw new AuthenticationError("No photo associated with the student!");
+        throw new AuthenticationError("No Activity associated with the student!");
       }
       return activity;
+    },
+    getFood:async(parent,{ student_id },context) =>{
+     
+      const food = Food.find({student_id: student_id})
+      
+      console.log(food)
+      if (!food) {
+        throw new AuthenticationError("No food associated with the student!");
+      }
+      return food;
     }
   },
 
@@ -159,14 +169,14 @@ const resolvers = {
       const teacher = await Teacher.create({username, email, first_name, last_name, is_main,is_active});
 return teacher
     },
-    addFood:async (parent, {mealSession,mealDesc}) => {
+    addFood:async (parent, {student_id,mealSession,mealDesc}) => {
 
-      const food = await Food.create( {mealSession,mealDesc});
+      const food = await Food.create( {student_id,mealSession,mealDesc});
 return food
     },
-    addActivity:async (parent, {activityType,desc,student_id,day}) => {
+    addActivity:async (parent, {activityType,desc,student_id}) => {
 
-      const activity = await Activity.create( {activityType,desc,student_id,day});
+      const activity = await Activity.create( {activityType,desc,student_id});
 return activity
     },
     addPhoto:async (parent, {student_id,imageUrl,desc}) => {

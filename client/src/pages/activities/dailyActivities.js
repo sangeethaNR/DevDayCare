@@ -90,8 +90,8 @@ event.preventDefault();
   try{
     
   console.log("activityType:"+activityType +"desc" +desc)
-  const {data} = await addActivityMutation({variables:{student_id:`${itemId}`,activityType:"activityType",
-    desc:"desc",day:''}});
+  const {data} = await addActivityMutation({variables:{student_id:`${itemId}`,activityType:activityType,
+    desc:desc,day:''}});
   console.log(JSON.stringify(data));
   if (!data) {
 

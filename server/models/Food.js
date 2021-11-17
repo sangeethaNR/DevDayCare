@@ -3,6 +3,11 @@ const dateFormat = require('../utils/dateFormat');
 const Schema = mongoose.Schema;
 const FoodSchema = new Schema({
   //breakfast,lunch,snack
+  student_id:
+  {
+      type: Schema.Types.ObjectId, 
+      ref: 'Profile'
+  },
   mealSession: {
     type: String,
     required: true,

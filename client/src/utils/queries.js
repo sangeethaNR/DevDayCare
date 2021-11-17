@@ -85,3 +85,15 @@ query getActivities($student_id:String){
   }
 }
 `;
+
+export const QUERY_FOOD = gql`
+query getFood($student_id:String!){
+  getFood(student_id : $student_id){
+    _id
+    student_id
+    mealSession
+    day
+    mealDesc
+  }
+}
+`;
