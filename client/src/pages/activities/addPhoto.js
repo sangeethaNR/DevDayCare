@@ -129,8 +129,8 @@ console.error(err);
 
     return (
   
-    
-      <div class="form-box">
+    <form style={{border:"dotted pink 2vw"}}>
+      <div className="form-box" style={{display:"flex", justifyContent:"center"}}>
            {photos ?(
       <ThemeProvider theme={theme}>
       <main>
@@ -158,11 +158,6 @@ console.error(err);
               spacing={2}
               justifyContent="center"
             >
-              {/* removed button to go on a diff form */}
-              {/* <Button variant="contained"
-              color = "secondary"
-              startIcon={<AddAPhotoIcon/>}
-              >Add Photo</Button> */}
               <Button variant="contained"
               color = "secondary"
               >View/Sort
@@ -172,14 +167,6 @@ console.error(err);
                   <MenuItem>Year</MenuItem>
                 </Select>
               </Button>
-              {/* <FormControl>
-                <InputLabel>View/Sort</InputLabel>
-                <Select> 
-                  <MenuItem>Day</MenuItem>
-                  <MenuItem>Month</MenuItem>
-                  <MenuItem>Year</MenuItem>
-              </Select>
-              </FormControl> */}
             </Stack>
           </Container>
         </Box>
@@ -221,11 +208,11 @@ console.error(err);
       {/* End footer */}
     </ThemeProvider>
   
-           ):( <h3> No Photos to disaply </h3>)}
+           ):( <h3> No Photos to display </h3>)}
 
-      <label for="desc">Photo:</label>
+      <label for="desc">Add Photo</label>
      <input name ="fileInput" type="file" onChange={(event) =>{setImageSelected(event.target.files[0])}}></input>
-      <button onClick={uploadImage}>Upload Image</button>
+      <button style={{maxWidth:"6rem", height:"4rem", marginRight:"1rem"}} onClick={uploadImage}>Upload Image</button>
       {/* <Image cloudName= "dhcq7qcuc" publicId=""/> */}
     
       <Modal
@@ -244,7 +231,7 @@ console.error(err);
      
 
       </div>
-      
+      </form>
   
 
     );
