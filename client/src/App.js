@@ -17,6 +17,7 @@ import Notes from './pages/activities/notes'
 import Incidents from './pages/activities/incidents'
 import AddStudent from './pages/addStudent'
 import AddTeacher from './pages/addTeacher'
+import AddClassroom from './pages/addClassroom'
 import AddPhoto from "./pages/activities/addPhoto"
 import AddFood from "./pages/activities/addFood"
 import NoteHistory from "./pages/activities/noteHistory"
@@ -64,6 +65,7 @@ function App() {
           <Route exact path='/adminDashboard' component={adminDashboard} />
           <Route exact path='/teacherDashboard' component={teacherDashboard} />
           <Route exact path='/addStudent' component={AddStudent} />
+          <Route exact path='/addClassroom' component={AddClassroom} />
           <Route exact path='/addTeacher' component={AddTeacher} />
           <Route exact path='/activities/:itemId' component={Activities}/>
           <Route exact path='/profile' component={Profile}/>

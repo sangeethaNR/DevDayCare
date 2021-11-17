@@ -38,6 +38,23 @@ function TeacherDashboardPage() {
         >
           Add Student
         </Link>
+        <Link
+          as={Link}
+          to="/addClassroom"
+          style={{
+            textDecoration: "none",
+            fontFamily: "Comic Sans Ms",
+            fontSize: "1.3rem",
+            color: "black",
+            border: "solid black .1vw",
+            padding: ".25rem",
+            borderRadius: "1rem",
+            backgroundColor: "lightblue",
+            margin: "5rem",
+          }}
+        >
+          Add Classroom
+        </Link>
       </div>
     </React.Fragment>
   );
