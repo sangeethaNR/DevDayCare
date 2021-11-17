@@ -84,7 +84,7 @@ mutation addPhoto($student_id: String, $imageUrl: String!,$desc:String){
     imageUrl
     day
     desc
-=======
+
   mutation addPhoto($student_id: String, $imageUrl: String!) {
     addPhoto(student_id: $student_id, imageUrl: $imageUrl) {
       student_id
