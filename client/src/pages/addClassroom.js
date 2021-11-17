@@ -60,9 +60,11 @@ function AddStudent() {
         <Grid item xs={12} sm={4}>
               <TextField
                 required
-                placeholder="Name"
                 fullWidth
                 type="text"
+                id="className"
+                name="className"
+                placeholder="class name"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 variant="standard"
