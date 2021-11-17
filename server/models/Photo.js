@@ -22,6 +22,10 @@ const PhotoSchema = new Schema({
     imageUrl:{
         type :String,
         required : true,   
+    },
+    desc:{
+        type :String,
+ default:'picture'
     }
 
 })

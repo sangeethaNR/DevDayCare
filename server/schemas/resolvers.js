@@ -159,9 +159,9 @@ return food
       const activity = await Activity.create( {activityType,desc});
 return activity
     },
-    addPhoto:async (parent, {student_id,imageUrl}) => {
+    addPhoto:async (parent, {student_id,imageUrl,desc}) => {
 
-      const photo = await Photo.create( {student_id,imageUrl});
+      const photo = await Photo.create( {student_id,imageUrl,desc});
 return photo
     }
   },
