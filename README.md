@@ -1,6 +1,6 @@
 # DevDayCare
 
-This project was deployed with [Heroku] https://devdaycare.herokuapp.com/
+This project was deployed with [Heroku](https://devdaycare.herokuapp.com/)
 
 ![screencapture-localhost-3000-2021-11-16-23_16_26](https://user-images.githubusercontent.com/82477037/142139271-e29a2cfa-7dd6-44df-8be5-d92b3544d16b.png)
 
