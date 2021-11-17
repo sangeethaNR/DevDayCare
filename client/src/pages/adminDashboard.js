@@ -127,10 +127,8 @@ function AdminDashboard() {
 
   return (
     <React.Fragment>
-            <Link as={Link} to="/addTeacher" style={{textDecoration:"none", padding:"10px", fontFamily: "Comic Sans Ms", fontSize: "1.3rem", color:"black" }}>
-        Add Teacher
-      </Link>
-    <Container>
+      <div style={{ border: "dotted pink 2vw", height: "100vh", padding:'2rem' }}>
+    <Container style={{margin:"2rem"}}>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
@@ -185,6 +183,18 @@ function AdminDashboard() {
         />
       </Paper>
     </Container>
+    <Link as={Link} to="/addTeacher" style={{   textDecoration: "none",
+            fontFamily: "Comic Sans Ms",
+            fontSize: "1.3rem",
+            color: "black",
+            border: "solid black .1vw",
+            padding: ".25rem",
+            borderRadius: "1rem",
+            backgroundColor: "lightblue",
+            margin: "5rem",}}>
+        Add Teacher
+      </Link>
+    </div>
     </React.Fragment>
   );
 }
