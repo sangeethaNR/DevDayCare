@@ -17,7 +17,7 @@ import Profile from "./pages/activities/profile";
 import Photos from "./pages/activities/photos";
 import DailyActivities from "./pages/activities/dailyActivities";
 import Food from "./pages/activities/food";
-import HealthInfo from "./pages/activities/healthInfo";
+import AddMedication from "./pages/activities/addMedication";
 import Notes from "./pages/activities/notes";
 import Incidents from "./pages/activities/incidents";
 import AddStudent from "./pages/addStudent";
@@ -33,6 +33,7 @@ import DailyActivitiesHistory from "./pages/activities/activityHistory";
 import UserProvider from "./components/AppContext";
 import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
 import Paperbase from "./dashboard";
+// import AddMedication from "./pages/activities/addMedication";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -88,7 +89,7 @@ function App() {
               />
               <Route exact path="/food" component={Food} />
               <Route exact path="/addFood/:itemId" component={AddFood} />
-              <Route exact path="/healthInfo" component={HealthInfo} />
+              <Route exact path="/addMedication/:itemId" component={AddMedication} />
               <Route exact path="/healthHistory" component={HealthHistory} />
               <Route exact path="/notes" component={Notes} />
               <Route exact path="/noteHistory" component={NoteHistory} />

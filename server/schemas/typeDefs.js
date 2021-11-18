@@ -210,6 +210,7 @@ const typeDefs = gql`
   student_id :String
  }
   type MedicationTypes {
+    _id: String
     medName: String!
     dosage: String!
   }
@@ -243,6 +244,10 @@ const typeDefs = gql`
     getActivities(student_id: String) :[Activity]
     getFood(student_id: String) :[Food]
     getMedication(_id: String) :[Student]
+
+   
+    
+
   }
   type Mutation {
     login(email: String!, password: String!): Auth
@@ -261,7 +266,8 @@ const typeDefs = gql`
     addActivity(activityType:String!,desc:String!,student_id:String):Activity
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   addPhoto(student_id: String,imageUrl: String!,desc: String):Photo
-  addMedication(_id: String,medName: String!,dosage: String!):Student
+ 
+ 
   }
 `;
 

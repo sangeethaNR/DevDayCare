@@ -102,6 +102,7 @@ const resolvers = {
       }
       return medication;
     }
+  
   },
 
   Mutation: {
@@ -195,7 +196,7 @@ return activity
 return photo
     }
   },
-
+  
 };
 
 module.exports = resolvers;
