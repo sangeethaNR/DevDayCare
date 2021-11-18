@@ -2,28 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_ACTIVITY } from "../../utils/mutations";
-import Alert from "@material-ui/lab/Alert";
 import { TextField } from "@material-ui/core";
-import AlertTitle from "@material-ui/lab/AlertTitle";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
-import Stack from "@mui/material/Stack";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { QUERY_ACTIVITY } from "../../utils/queries";
+
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -141,39 +135,44 @@ const DailyActivities = () => {
                     fontFamily="Comic Sans Ms"
                     gutterBottom
                   >
-                    Student Activity 
+                    Student Activity
                   </Typography>
                 </Container>
               </Box>
-              <Container maxWidth="md" style={{marginRight:"20rem", display:"flex", justifyContent:"initial"}}>
-                {/* End hero unit */}
-                <Grid container spacing={4}>
-                  {activities.map((activity) => (
-                    <Grid item key={activity._id} xs={12} sm={6} md={4}>
-                      <Card
-                        sx={{
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          width:"100%"
-                        }}
-                      >
-                        <CardContent sx={{ flexGrow: 1 }}>
-                          <Typography gutterBottom variant="h5" component="h2" style={{fontWeight:"bold"}}>
-                            {activity.activityType}
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                  bgcolor: "lightyellow",
+                }}
+              >
+                {activities.map((activity) => (
+                  <ListItem
+                    alignItems="flex-start"
+                    style={{ border: "solid lightpink .2rem" }}
+                  >
+                    <ListItemText
+                      primary={activity.activityType}
+                      secondary={
+                        <React.Fragment>
+                          <Typography
+                            sx={{ display: "inline" }}
+                            component="span"
+                            variant="body2"
+                            color="text.primary"
+                          >
+                            Description: {activity.desc}
                           </Typography>
-                          <Typography gutterBottom variant="h5" component="h6" style={{fontSize:".8rem"}}>
+                          <Typography style={{ fontSize: "1rem" }}>
                             {activity.day}
                           </Typography>
-                          <Typography gutterBottom variant="h5" component="h2">
-                            {activity.desc}
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Container>
+                        </React.Fragment>
+                      }
+                    />
+                  </ListItem>
+                  // <Divider variant="inset" component="li" />
+                ))}
+              </List>
             </main>
             {/* Footer */}
             <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
@@ -184,14 +183,16 @@ const DailyActivities = () => {
         ) : (
           <h3> No Activity to display </h3>
         )}
-        <div     style={{
+        <div
+          style={{
             border: "solid black .2vh",
             margin: "3rem",
             maxHeight: "45%",
             width: "40%",
-          display:'flex',
-          flexDirection:"column"
-          }}>
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <TextField
             id="activityType"
             label="activityType"
@@ -209,7 +210,12 @@ const DailyActivities = () => {
             style={{ margin: "2rem" }}
           />
           <button
-            style={{ maxWidth: "6rem", height: "4rem", marginRight: "1rem", alignSelf:"center" }}
+            style={{
+              maxWidth: "6rem",
+              height: "4rem",
+              marginRight: "1rem",
+              alignSelf: "center",
+            }}
             onClick={(event) => {
               uploadActivity(event);
             }}
