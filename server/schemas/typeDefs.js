@@ -94,10 +94,10 @@ const typeDefs = gql`
 
   ## IncidentReport def
   type IncidentReport {
-    _id: ID!
-    desc: [String!]
-    day: String!
-    studentId: ID!
+    _id: ID
+    desc: String
+    day: String
+    student_id: String
   }
 
 
@@ -233,6 +233,7 @@ const typeDefs = gql`
     _id:ID
     
   }
+  
 
   ## queries
   type Query {
@@ -247,6 +248,7 @@ const typeDefs = gql`
     getFood(student_id: String) :[Food]
     getMedication(_id: String) :[Student]
     getNotes(student_id:String):[Notes]
+    getIncidentReport(student_id :String): [IncidentReport]
 
    
     
@@ -270,7 +272,7 @@ const typeDefs = gql`
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   addPhoto(student_id: String,imageUrl: String!,desc: String):Photo
   addNotes(student_id: String,noteDesc: String): Notes
- 
+ addIncidentReport(student_id: String,desc: String): IncidentReport
  
   }
 `;

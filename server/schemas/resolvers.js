@@ -111,6 +111,16 @@ const resolvers = {
         throw new AuthenticationError("No notes associated with the student!");
       }
       return notes;
+    },
+    getIncidentReport:async(parent,{ student_id },context) =>{
+     
+      const incidentReports = IncidentReport.find({student_id: student_id})
+      
+      console.log(incidentReports)
+      if (!incidentReports) {
+        throw new AuthenticationError("No incidentReports associated with the student!");
+      }
+      return incidentReports;
     }
   
   },
@@ -209,8 +219,14 @@ return photo
 
       const notes = await Notes.create( {student_id,noteDesc});
 return notes
-    }
-  },
+    },
+  
+    addIncidentReport :async (parent, {student_id,desc}) => {
+
+    const incidentReport = await IncidentReport.create( {student_id,desc});
+return incidentReport
+  }
+  }
   
 };
 
