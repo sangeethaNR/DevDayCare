@@ -13,6 +13,7 @@ import { GET_ALL_TEACHERS } from "../utils/queries";
 import { CHANGE_TEACHER_STATUS } from "../utils/mutations";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 
 const columns = [
   { id: "username", label: "Username", minWidth: 170 },
@@ -48,7 +49,6 @@ const columns = [
     align: "right",
   },
 ];
-
 
 function createData(
   username,
@@ -89,7 +89,11 @@ function AdminDashboard() {
 
   const renderButton = (id, status) => {
     return status ? (
-      <Button variant="outlined" color="error" onClick={() => changeTeacherStatus(id, false)}>
+      <Button
+        variant="outlined"
+        color="error"
+        onClick={() => changeTeacherStatus(id, false)}
+      >
         Deactivate
       </Button>
     ) : (
@@ -127,63 +131,83 @@ function AdminDashboard() {
 
   return (
     <React.Fragment>
-      <div style={{ border: "dotted pink 2vw", height: "100vh", padding:'2rem' }}>
-    <Container style={{margin:"2rem"}}>
-      <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                  >
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {createRowsData()
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={createRowsData().length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </Paper>
-    </Container>
-    <Link as={Link} to="/addTeacher" style={{   textDecoration: "none",
+      <Navbar variant="light" expand="lg" className="brand">
+        <Container
+          fluid
+          style={{ fontFamily: "Comic Sans Ms", fontSize: "1.3rem" }}
+        >
+          <Link
+            as={Link}
+            to="/"
+            style={{ textDecoration: "none", color:"black", fontSize:"3rem"}}
+          >
+            Blossom Babies
+          </Link>
+        </Container>
+      </Navbar>
+      <div
+        style={{ border: "dotted pink 2vw", height: "100vh", padding: "2rem" }}
+      >
+        <Container style={{ margin: "2rem" }}>
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer sx={{ maxHeight: 440 }}>
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth }}
+                      >
+                        {column.label}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {createRowsData()
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row) => {
+                      return (
+                        <TableRow
+                          hover
+                          role="checkbox"
+                          tabIndex={-1}
+                          key={row.code}
+                        >
+                          {columns.map((column) => {
+                            const value = row[column.id];
+                            return (
+                              <TableCell key={column.id} align={column.align}>
+                                {column.format && typeof value === "number"
+                                  ? column.format(value)
+                                  : value}
+                              </TableCell>
+                            );
+                          })}
+                        </TableRow>
+                      );
+                    })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <TablePagination
+              rowsPerPageOptions={[10, 25, 100]}
+              component="div"
+              count={createRowsData().length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </Paper>
+        </Container>
+        <Link
+          as={Link}
+          to="/addTeacher"
+          style={{
+            textDecoration: "none",
             fontFamily: "Comic Sans Ms",
             fontSize: "1.3rem",
             color: "black",
@@ -191,10 +215,12 @@ function AdminDashboard() {
             padding: ".25rem",
             borderRadius: "1rem",
             backgroundColor: "lightblue",
-            margin: "5rem",}}>
-        Add Teacher
-      </Link>
-    </div>
+            margin: "5rem",
+          }}
+        >
+          Add Teacher
+        </Link>
+      </div>
     </React.Fragment>
   );
 }
