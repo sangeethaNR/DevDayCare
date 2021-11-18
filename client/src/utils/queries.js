@@ -97,10 +97,11 @@ query getFood($student_id:String!){
   }
 }
 `;
+
+
 export const QUERY_MEDICATION = gql`
 query getMedication($_id:String!){
   getMedication(_id : $_id){
-
    _id
   
    medications {
@@ -108,7 +109,5 @@ query getMedication($_id:String!){
       dosage
     }
    
-
   }
-
 }`;
