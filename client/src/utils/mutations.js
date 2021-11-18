@@ -151,3 +151,16 @@ mutation addFood($mealSession:String!,$mealDesc:String!,$student_id:String) {
 }
 `
 
+
+export const ADD_NOTES = gql`
+mutation addNotes($student_id: String,$noteDesc: String) {
+  addNotes(student_id:$student_id,noteDesc:$noteDesc)
+{
+  _id
+  student_id
+  noteDesc
+  day
+}
+}
+`
+

@@ -101,6 +101,16 @@ const resolvers = {
         throw new AuthenticationError("No food associated with the student!");
       }
       return medication;
+    },
+    getNotes:async(parent,{ student_id },context) =>{
+     
+      const notes = Notes.find({student_id: student_id})
+      
+      console.log(notes)
+      if (!notes) {
+        throw new AuthenticationError("No notes associated with the student!");
+      }
+      return notes;
     }
   
   },
@@ -194,6 +204,11 @@ return activity
 
       const photo = await Photo.create( {student_id,imageUrl,desc});
 return photo
+    },
+    addNotes:async (parent, {student_id,noteDesc}) => {
+
+      const notes = await Notes.create( {student_id,noteDesc});
+return notes
     }
   },
   

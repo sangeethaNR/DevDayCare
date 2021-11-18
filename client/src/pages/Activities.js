@@ -127,7 +127,7 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
-                <Link as={Link} to="/notes">
+                <Link as={Link} to={`/notes/${itemId}`}>
                   Add/View
                 </Link>
                 {/* <Link as={Link} to="/noteHistory">
@@ -150,7 +150,7 @@ function Activities() {
                 </Typography>
               </CardContent>
               <CardActions style={{fontFamily:"Comic Sans Ms !important", float:"right"}}>
-                <Link as={Link} to="/incidents">
+                <Link as={Link} to={`/incidents/${itemId}`}>
                   Add/View
                 </Link>
                 {/* <Link as={Link} to="/incidentHistory">

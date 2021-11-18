@@ -100,13 +100,6 @@ const typeDefs = gql`
     studentId: ID!
   }
 
-  ## Notes def
-  type Notes {
-    noteDesc: [String!]
-    day: String!
-    student_id: ID!
-    _id: ID!
-  }
 
   ##Input Types
   input FoodInput {
@@ -209,6 +202,15 @@ const typeDefs = gql`
   _id :ID
   student_id :String
  }
+ ## Notes def
+ type Notes {
+   _id:ID
+   noteDesc: String
+   day: String
+   student_id:String
+  
+ }
+
   type MedicationTypes {
     _id: String
     medName: String!
@@ -244,6 +246,7 @@ const typeDefs = gql`
     getActivities(student_id: String) :[Activity]
     getFood(student_id: String) :[Food]
     getMedication(_id: String) :[Student]
+    getNotes(student_id:String):[Notes]
 
    
     
@@ -266,6 +269,7 @@ const typeDefs = gql`
     addActivity(activityType:String!,desc:String!,student_id:String):Activity
     addTeacher(username: String!, email: String!, first_name: String!, last_name: String!, is_main: Boolean!,is_active: Boolean): Teachers
   addPhoto(student_id: String,imageUrl: String!,desc: String):Photo
+  addNotes(student_id: String,noteDesc: String): Notes
  
  
   }
