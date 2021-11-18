@@ -33,7 +33,7 @@ const ProfileSchema = new Schema({
         required: true,
       },
       phoneNo: {
-        type: String,
+        type: Number,
         required: true,
       },
       address: {
@@ -57,7 +57,7 @@ const ProfileSchema = new Schema({
         required: true,
       },
       phoneNo: {
-        type: String,
+        type: Number,
         required: true,
       },
     },
