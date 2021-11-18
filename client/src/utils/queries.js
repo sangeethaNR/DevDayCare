@@ -111,3 +111,14 @@ query getMedication($_id:String!){
    
   }
 }`;
+export const QUERY_NOTES = gql`
+query getNotes($student_id:String!){
+  getNotes(student_id : $student_id){
+    _id
+    student_id
+ noteDesc
+ day
+   
+  }
+}`;
+

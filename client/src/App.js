@@ -91,9 +91,9 @@ function App() {
               <Route exact path="/addFood/:itemId" component={AddFood} />
               <Route exact path="/addMedication/:itemId" component={AddMedication} />
               <Route exact path="/healthHistory" component={HealthHistory} />
-              <Route exact path="/notes" component={Notes} />
+              <Route exact path="/notes/:itemId" component={Notes} />
               <Route exact path="/noteHistory" component={NoteHistory} />
-              <Route exact path="/incidents" component={Incidents} />
+              <Route exact path="/incidents/:itemId" component={Incidents} />
               <Route
                 exact
                 path="/incidentHistory"
