@@ -91,6 +91,16 @@ const resolvers = {
         throw new AuthenticationError("No food associated with the student!");
       }
       return food;
+    },
+    getMedication:async(parent,{ _id },context) =>{
+     
+      const medication = Profile.find({_id: _id})
+      
+      console.log(medication)
+      if (!medication) {
+        throw new AuthenticationError("No food associated with the student!");
+      }
+      return medication;
     }
   },
 
