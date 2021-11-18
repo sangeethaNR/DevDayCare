@@ -141,11 +141,11 @@ const DailyActivities = () => {
                     fontFamily="Comic Sans Ms"
                     gutterBottom
                   >
-                    Student Activity ...
+                    Student Activity 
                   </Typography>
                 </Container>
               </Box>
-              <Container sx={{ py: 8 }} maxWidth="md">
+              <Container maxWidth="md" style={{marginRight:"20rem", display:"flex", justifyContent:"initial"}}>
                 {/* End hero unit */}
                 <Grid container spacing={4}>
                   {activities.map((activity) => (
