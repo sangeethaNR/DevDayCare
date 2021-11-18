@@ -121,4 +121,14 @@ query getNotes($student_id:String!){
    
   }
 }`;
+export const QUERY_INCIDENTREPORT = gql`
+query getIncidentReport($student_id:String){
+  getIncidentReport(student_id : $student_id){
+    _id
+    student_id
+ desc
+ day
+   
+  }
+}`;
 

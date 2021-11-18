@@ -163,4 +163,13 @@ mutation addNotes($student_id: String,$noteDesc: String) {
 }
 }
 `
-
+export const ADD_INCIDENTREPORT = gql`
+mutation addIncidentReport($student_id: String,$desc: String) {
+  addIncidentReport(student_id:$student_id,desc:$desc)
+{
+  _id
+  student_id
+  desc
+  day
+}
+}`
