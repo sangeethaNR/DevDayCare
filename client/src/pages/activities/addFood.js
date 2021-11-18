@@ -2,28 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_FOOD } from "../../utils/mutations";
-import Alert from "@material-ui/lab/Alert";
 import { TextField } from "@material-ui/core";
-import AlertTitle from "@material-ui/lab/AlertTitle";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
-import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
-import Stack from "@mui/material/Stack";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { QUERY_FOOD } from "../../utils/queries";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -123,39 +112,40 @@ const AddFood = () => {
                     fontFamily="Comic Sans Ms"
                     gutterBottom
                   >
-                    Meal
+                    Meal History
                   </Typography>
                 </Container>
               </Box>
-              <Container sx={{ py: 8 }} maxWidth="md">
-                {/* End hero unit */}
-                <Grid container spacing={4}>
-                  {foods.map((food) => (
-                    <Grid item key={food._id} xs={12} sm={6} md={4}>
-                      <Card
-                        sx={{
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          width: "200%",
-                        }}
-                      >
-                        <CardContent sx={{ flexGrow: 1 }}>
-                          <Typography gutterBottom variant="h5" component="h2" style={{fontWeight:"bold"}}>
-                            {food.mealSession}
-                          </Typography>
-                          <Typography gutterBottom variant="h5" component="h2" style={{fontSize:".8rem"}}>
-                            {food.day}
-                          </Typography>
-                          <Typography gutterBottom variant="h5" component="h2">
-                            {food.mealDesc}
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Container>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                  bgcolor: "lightyellow",
+                }}
+              > {foods.map((food) => (
+                <ListItem alignItems="flex-start" style={{border:"solid lightpink .2rem"}}>
+                  <ListItemText
+                    primary={food.mealSession}
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          sx={{ display: "inline" }}
+                          component="span"
+                          variant="body2"
+                          color="text.primary"
+                        >
+                          Description: {food.mealDesc}
+                        </Typography>
+                        <Typography style={{fontSize:"1rem"}}>
+                        {food.day}
+                        </Typography>
+                    </React.Fragment>
+                    }
+                  />
+                </ListItem>
+                // <Divider variant="inset" component="li" />
+              ))}
+              </List>
             </main>
             {/* Footer */}
             <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
@@ -180,7 +170,7 @@ const AddFood = () => {
             variant="outlined"
             value={mealSession}
             onChange={(event) => setMealSession(event.target.value)}
-            style={{margin:'1rem'}}
+            style={{ margin: "1rem" }}
           />
           <TextField
             id="activityDesc"
@@ -188,16 +178,20 @@ const AddFood = () => {
             variant="outlined"
             value={mealDesc}
             onChange={(event) => setMealDesc(event.target.value)}
-            style={{margin:'1rem'}}
+            style={{ margin: "1rem" }}
           />
           <button
-            style={{ maxWidth: "6rem", height: "4rem", margin: "1rem", padding:"1rem" }}
+            style={{
+              maxWidth: "6rem",
+              height: "4rem",
+              margin: "1rem",
+              padding: "1rem",
+            }}
             onClick={(event) => {
               uploadFood(event);
             }}
-
           >
-            Upload 
+            Upload
           </button>
         </div>
 
