@@ -185,7 +185,6 @@ const AddFood = () => {
               maxWidth: "6rem",
               height: "4rem",
               margin: "1rem",
-              padding: "1rem",
             }}
             onClick={(event) => {
               uploadFood(event);
