@@ -163,13 +163,13 @@ const typeDefs = gql`
     physicianName: String!
     medicalRecordNo: Int!
     address: String!
-    phoneNo: String!
+    phoneNo: Int!
   }
   input PhysicianInput {
     physicianName: String!
     medicalRecordNo: Int!
     address: String!
-    phoneNo: String!
+    phoneNo: Int!
   }
   type classRoom{
     className : String!
