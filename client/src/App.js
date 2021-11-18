@@ -25,7 +25,6 @@ import AddTeacher from "./pages/addTeacher";
 import AddClassroom from "./pages/addClassroom";
 import AddPhoto from "./pages/activities/addPhoto";
 import AddFood from "./pages/activities/addFood";
-import NoteHistory from "./pages/activities/noteHistory";
 import DailyActivitiesHistory from "./pages/activities/activityHistory";
 
 import UserProvider from "./components/AppContext";
@@ -89,7 +88,6 @@ function App() {
               <Route exact path="/addFood/:itemId" component={AddFood} />
               <Route exact path="/addMedication/:itemId" component={AddMedication} />
               <Route exact path="/notes/:itemId" component={Notes} />
-              <Route exact path="/noteHistory" component={NoteHistory} />
               <Route exact path="/incidents/:itemId" component={Incidents} />
             </Switch>
             <Footer />
