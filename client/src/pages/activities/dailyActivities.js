@@ -155,22 +155,20 @@ const DailyActivities = () => {
                           height: "100%",
                           display: "flex",
                           flexDirection: "column",
+                          width:"100%"
                         }}
                       >
                         <CardContent sx={{ flexGrow: 1 }}>
-                          <Typography gutterBottom variant="h5" component="h2">
+                          <Typography gutterBottom variant="h5" component="h2" style={{fontWeight:"bold"}}>
                             {activity.activityType}
                           </Typography>
-                          <Typography gutterBottom variant="h5" component="h2">
+                          <Typography gutterBottom variant="h5" component="h6" style={{fontSize:".8rem"}}>
                             {activity.day}
                           </Typography>
                           <Typography gutterBottom variant="h5" component="h2">
                             {activity.desc}
                           </Typography>
                         </CardContent>
-                        <CardActions>
-                          <Button size="small">View</Button>
-                        </CardActions>
                       </Card>
                     </Grid>
                   ))}
