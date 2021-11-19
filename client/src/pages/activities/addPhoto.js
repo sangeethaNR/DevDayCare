@@ -185,7 +185,8 @@ const AddPhoto = () => {
                 </Grid>
                 
               </Container> */}
-            <ImageList sx={{ width: 300, height: 250 }} style={{marginLeft:"3rem"}}>
+              <div style={{display:"flex", justifyContent:"center"}}>
+            <ImageList sx={{ width: 300, height: 250 }}>
               {photos.map((card) => (
                 <ImageListItem key={card._id}>
                   <img
@@ -198,6 +199,7 @@ const AddPhoto = () => {
                 </ImageListItem>
               ))}
             </ImageList>
+            </div>
           </main>
         ) : (
           <h3> No Photos to display </h3>
