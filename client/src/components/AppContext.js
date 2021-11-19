@@ -15,6 +15,7 @@ const UserProvider = ({ children }) => {
     },
   });
   const classInfo = data?.getClassRoom || [];
+  console.log(classInfo, "info")
   const handleDashboardView = () => {
     console.log("inside toggle theme");
     return setIsTeacher((prev) => !prev);

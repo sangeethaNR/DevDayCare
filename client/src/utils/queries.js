@@ -43,6 +43,8 @@ export const GET_CLASS_INFO = gql`
       students {
         _id
         name
+        lastName
+        middleName
         profilePic
         mealPlans {
           mealSession

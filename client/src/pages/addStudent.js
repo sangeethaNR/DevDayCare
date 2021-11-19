@@ -3,12 +3,25 @@ import Grid from "@mui/material/Grid";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import TimePicker from "@mui/lab/TimePicker";
-import {DatePicker} from "@mui/lab";
+import { DatePicker } from "@mui/lab";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import MobileDatePicker from "@mui/lab/MobileDatePicker";
 import { FormLabel } from "react-bootstrap";
 import {
-  FormControl, InputLabel, MenuItem, Radio, RadioGroup, Select, Typography, Box, TextField, FormControlLabel, Checkbox, Container, Stack, Button
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  Typography,
+  Box,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Container,
+  Stack,
+  Button,
 } from "@mui/material";
 import { ADD_STUDENT } from "../utils/mutations";
 import { AppContext } from "../components/AppContext";
@@ -59,7 +72,7 @@ const NumberFormatCustom = React.forwardRef(function NumberFormatCustom(
 });
 
 const AddStudent = () => {
-  const [dobValue,setDobValue] = React.useState("")
+  const [dobValue, setDobValue] = React.useState("");
   const [allergies, setAllergies] = React.useState([]);
   const [parentDetails, setParentDetails] = React.useState([]);
   const [emergencyContact, setEmergencyContact] = React.useState([]);
@@ -70,7 +83,8 @@ const AddStudent = () => {
     middleName: "",
     lastName: "",
     dateOfBirth: "",
-    profilePic: "",
+    profilePic:
+      "https://media.wired.com/photos/5e3246cd56bcac00087f0a1e/master/pass/Culture-Success-Meme-Kid.jpg",
     joinedOn: new Date().toLocaleDateString(),
     allergies: "",
     isPottyTrained: true,
@@ -91,12 +105,23 @@ const AddStudent = () => {
   });
 
   function checkValues(obj) {
-    console.log(obj)
-    const res = Object.values(obj).map(value => !!((""+value).length))
-    const res2 = res.reduce((total,item) => total && item)
-    console.log(res)
-    return res2
-    
+    const res = Object.values(obj).map((value) => !!("" + value).length);
+    const res2 = res.reduce((total, item) => total && item);
+    return res2;
+  }
+
+  function checkFormValues() {
+    if (
+      !allergies.length ||
+      !parentDetails.length ||
+      !emergencyContact.length ||
+      !medications.length ||
+      !physician.length || !checkValues(formValues)
+    ) {
+      return true;
+    } else {
+      return false
+    }
   }
 
   const { classInfo, refetch } = React.useContext(AppContext);
@@ -110,7 +135,7 @@ const AddStudent = () => {
       name: formValues.name,
       middleName: formValues.middleName,
       lastName: formValues.lastName,
-      dateOfBirth:formValues.dateOfBirth,
+      dateOfBirth: formValues.dateOfBirth,
       joinedOn: formValues.joinedOn,
       isPottyTrained: formValues.isPottyTrained,
       profilePic: formValues.profilePic,
@@ -121,14 +146,13 @@ const AddStudent = () => {
       medications,
     };
     try {
-      console.log("submit form data:" + body)
+      console.log("submit form data:" + body);
       const { data, error } = await addStudent({
         variables: {
           studentInput: body,
           class_id: formValues.class_id,
         },
       });
-
 
       if (!data) alert("some error occured");
       refetch();
@@ -143,8 +167,7 @@ const AddStudent = () => {
     let { name, value } = e.target;
     if (value == "true") value = true;
     if (value == "false") value = false;
-    setFormValues({ ...formValues, [name]: value,'dateOfBirth':dobValue });
-    
+    setFormValues({ ...formValues, [name]: value, dateOfBirth: dobValue });
   };
 
   const handleClick = (body, setState) => {
@@ -153,7 +176,7 @@ const AddStudent = () => {
     setState((prevProps) => [...prevProps, body]);
   };
 
-  console.log(checkValues(formValues));
+  console.log(checkFormValues());
   return (
     <React.Fragment>
       <Container>
@@ -170,9 +193,15 @@ const AddStudent = () => {
                   name="name"
                   label="First name"
                   fullWidth
-                  autoComplete="given-name"
                   variant="standard"
                   onChange={handleChange}
+                  // inputProps={{
+                  //   autocomplete: "off",
+                  //   form: {
+                  //     autocomplete: "off",
+                  //   },
+                  // }}
+                  autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -182,9 +211,9 @@ const AddStudent = () => {
                   name="lastName"
                   label="Last name"
                   fullWidth
-                  autoComplete="family-name"
                   variant="standard"
                   onChange={handleChange}
+                 
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -197,21 +226,26 @@ const AddStudent = () => {
                   autoComplete="family-name"
                   variant="standard"
                   onChange={handleChange}
+                  inputProps={{
+                    autocomplete: "off",
+                    form: {
+                      autocomplete: "off",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DatePicker
-    label="Date Of Birth" name="dateOfBirth"
-    value={dobValue}   onChange={(newValue) => {
-    
-     setDobValue(newValue);
-    }}
-   
-    renderInput={(params) => <TextField {...params} />}
-  />
-
-</LocalizationProvider>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Date Of Birth"
+                    name="dateOfBirth"
+                    value={dobValue}
+                    onChange={(newValue) => {
+                      setDobValue(newValue);
+                    }}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
                 {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
                     <DesktopDatePicker
@@ -281,6 +315,7 @@ const AddStudent = () => {
                   label="Profile Pic"
                   fullWidth
                   variant="standard"
+                  value={formValues.profilePic}
                   onChange={handleChange}
                 />
               </Grid>
@@ -538,8 +573,8 @@ const AddStudent = () => {
                 <Button
                   fullWidth
                   variant="contained"
-                  disabled = {!checkValues(formValues) }
-
+                  disabled={checkFormValues()}
+                  // disabled={checkValues(formValues) && !parentDetails.length}
                   onClick={handleSubmit}
                 >
                   Submit form{" "}
@@ -553,7 +588,7 @@ const AddStudent = () => {
       </Container>
     </React.Fragment>
   );
-}
+};
 
 /*
  <form style={{ border: "dotted pink 2vw" }}>
