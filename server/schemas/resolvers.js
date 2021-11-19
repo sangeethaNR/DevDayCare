@@ -225,7 +225,22 @@ return notes
 
     const incidentReport = await IncidentReport.create( {student_id,desc});
 return incidentReport
-  }
+  },
+  addMedication:async (parent, {_id,medName,dosage}) => {
+
+    const medicine = await Profile.findOneAndUpdate(
+       {_id:_id} ,
+      {
+        $addToSet: {
+           medications:{ medName:medName,dosage:dosage}
+          }},    
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+return medicine
+  },
   }
   
 };

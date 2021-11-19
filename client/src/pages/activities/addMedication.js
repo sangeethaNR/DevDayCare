@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery,useMutation } from "@apollo/client";
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
@@ -9,7 +9,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { QUERY_MEDICATION } from "../../utils/queries";
-
+import {ADD_MEDICATION} from "../../utils/mutations";
+import MedicationList from "../../components/MedicationList";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -51,6 +52,7 @@ const AddMedication = () => {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
+  const [addMedicationMutation]  = useMutation(ADD_MEDICATION)
   const { data } = useQuery(
     QUERY_MEDICATION,
 
@@ -65,6 +67,7 @@ const AddMedication = () => {
     setOpen(true);
   };
 
+
   const handleClose = () => {
     setOpen(false);
     window.location.reload(true);
@@ -72,15 +75,15 @@ const AddMedication = () => {
   const uploadMedication = async (event) => {
     event.preventDefault();
     try {
-      //  console.log("food:"+activityType +"desc" +desc)
-      // const {data} = await addMedicationMutation({variables:{_id:`${itemId}`,medName:medName,
-      // dosage:dosage}});
-      // console.log(JSON.stringify(data));
-      // if (!data) {
+       console.log("medName:"+medName +"dosafe" +dosage)
+      const {data} = await addMedicationMutation({variables:{_id:`${itemId}`,medName:medName,
+      dosage:dosage}});
+      console.log(JSON.stringify(data));
+      if (!data) {
 
-      //   throw new Error("something went wrong!");
+        throw new Error("something went wrong!");
 
-      // }
+      }
       handleOpen();
     } catch (err) {
       console.error(err);
@@ -128,21 +131,7 @@ const AddMedication = () => {
                     alignItems="flex-start"
                     style={{ border: "solid lightpink .2rem" }}
                   >
-                    <ListItemText
-                      primary={med.medications[i].medName}
-                      secondary={
-                        <React.Fragment>
-                          <Typography
-                            sx={{ display: "inline" }}
-                            component="span"
-                            variant="body2"
-                            color="text.primary"
-                          >
-                            Dosage: {med.medications[i].dosage}
-                          </Typography>
-                        </React.Fragment>
-                      }
-                    />
+                  <MedicationList medications={med.medications} />
                   </ListItem>
                   // <Divider variant="inset" component="li" />
                 ))}
