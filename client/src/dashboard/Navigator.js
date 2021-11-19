@@ -14,6 +14,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SchoolIcon from '@mui/icons-material/School';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 
 const item = {
   py: "2px",
@@ -64,6 +65,7 @@ export default function Navigator(props) {
   console.log(classInfo, "info");
 
   return (
+    <React.Fragment>
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem
@@ -97,5 +99,6 @@ export default function Navigator(props) {
         ))}
       </List>
     </Drawer>
+    </React.Fragment>
   );
 }
