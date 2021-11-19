@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import TimePicker from "@mui/lab/TimePicker";
-import DateTimePicker from "@mui/lab/DateTimePicker";
+import {DatePicker} from "@mui/lab";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import MobileDatePicker from "@mui/lab/MobileDatePicker";
 import { FormLabel } from "react-bootstrap";
@@ -58,7 +58,8 @@ const NumberFormatCustom = React.forwardRef(function NumberFormatCustom(
   );
 });
 
-function AddStudent() {
+const AddStudent = () => {
+  const [dobValue,setDobValue] = React.useState("")
   const [allergies, setAllergies] = React.useState([]);
   const [parentDetails, setParentDetails] = React.useState([]);
   const [emergencyContact, setEmergencyContact] = React.useState([]);
@@ -109,7 +110,7 @@ function AddStudent() {
       name: formValues.name,
       middleName: formValues.middleName,
       lastName: formValues.lastName,
-      dateOfBirth: formValues.dateOfBirth,
+      dateOfBirth:formValues.dateOfBirth,
       joinedOn: formValues.joinedOn,
       isPottyTrained: formValues.isPottyTrained,
       profilePic: formValues.profilePic,
@@ -120,6 +121,7 @@ function AddStudent() {
       medications,
     };
     try {
+      console.log("submit form data:" + body)
       const { data, error } = await addStudent({
         variables: {
           studentInput: body,
@@ -141,7 +143,8 @@ function AddStudent() {
     let { name, value } = e.target;
     if (value == "true") value = true;
     if (value == "false") value = false;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues({ ...formValues, [name]: value,'dateOfBirth':dobValue });
+    
   };
 
   const handleClick = (body, setState) => {
@@ -197,7 +200,19 @@ function AddStudent() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DatePicker
+    label="Date Of Birth" name="dateOfBirth"
+    value={dobValue}   onChange={(newValue) => {
+    
+     setDobValue(newValue);
+    }}
+   
+    renderInput={(params) => <TextField {...params} />}
+  />
+
+</LocalizationProvider>
+                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
                     <DesktopDatePicker
                       label="Date of birth"
@@ -212,7 +227,7 @@ function AddStudent() {
                       renderInput={(params) => <TextField {...params} />}
                     />
                   </Stack>
-                </LocalizationProvider>
+                </LocalizationProvider> */}
               </Grid>
               <Grid item xs={8}>
                 <TextField

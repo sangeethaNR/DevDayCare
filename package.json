@@ -17,6 +17,9 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.11.0",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/lab": "^5.0.0-alpha.55",
     "axios": "^0.24.0",
     "cloudinary-react": "^1.7.0",
     "mongoose": "^6.0.12",
