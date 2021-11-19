@@ -55,7 +55,7 @@ const typeDefs = gql`
     joinedOn: String!
     allergy: [String]
     isPottyTrained: Boolean!
-    parents: [ParentTypes!]
+    parents: [ParentTypes]!
     emergencyContact: [EmergencyContactTypes!]
     physician: [PhysicianTypes!]
     medications: [MedicationTypes]
@@ -71,7 +71,7 @@ const typeDefs = gql`
     joinedOn: String!
     allergy: [String]
     isPottyTrained: Boolean!
-    parents: [ParentInput!]
+    parents: [ParentInput]!
     emergencyContact: [EmergencyContactInput!]
     physician: [PhysicianInput!]
     medications: [MedicationInput!]

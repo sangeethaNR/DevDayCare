@@ -3,9 +3,7 @@ const { Photo,User,Food, Teacher, ClassRoom, Profile, Activity, Notes, IncidentR
 const { signToken } = require("../utils/auth");
 
 async function loginFunction(Schema, email, password) {
-  console.log('inside login function:' +Schema+ email+ password)
   const user = await Schema.findOne({ email });
-  console.log("user:" + user)
   if (!user) {
     throw new AuthenticationError("Can't find this user");
   }
@@ -47,7 +45,6 @@ const resolvers = {
     },
     getStudentMedicalInfo: async (_, {id}) => {
       const studentInfo = Profile.findById(id)
-      console.log(studentInfo)
       if (!studentInfo) {
         throw new AuthenticationError("Cannot find a student with this id!");
       }
@@ -56,14 +53,12 @@ const resolvers = {
     },
     getClassRoom:async(parent,{ teacherId },context) =>{
       const classRoom = ClassRoom.find({teachers: teacherId}).populate('students').populate("teachers")
-      console.log(classRoom)
       if (!classRoom) {
         throw new AuthenticationError("No classroom associated with the teacher!");
       }
       return classRoom;
     },
     getPhotos:async(parent,{ student_id },context) =>{
-      console.log('inside getPhotos:0' + student_id)
       const photo = Photo.find({student_id: student_id})
       
       console.log(photo)
