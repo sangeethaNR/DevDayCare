@@ -25,7 +25,6 @@ import AddTeacher from "./pages/addTeacher";
 import AddClassroom from "./pages/addClassroom";
 import AddPhoto from "./pages/activities/addPhoto";
 import AddFood from "./pages/activities/addFood";
-import DailyActivitiesHistory from "./pages/activities/activityHistory";
 
 import UserProvider from "./components/AppContext";
 import Paperbase from "./dashboard";
@@ -77,11 +76,6 @@ function App() {
                 exact
                 path="/dailyActivities/:itemId"
                 component={DailyActivities}
-              />
-              <Route
-                exact
-                path="/dailyActivitiesHistory"
-                component={DailyActivitiesHistory}
               />
               <Route exact path="/food" component={Food} />
               <Route exact path="/addFood/:itemId" component={AddFood} />
