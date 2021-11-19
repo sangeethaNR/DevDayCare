@@ -27,8 +27,10 @@ import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { QUERY_PHOTOS } from "../../utils/queries";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
-//TO Do : set popup when adding photo
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -142,52 +144,35 @@ const AddPhoto = () => {
 
   return (
     <form style={{ border: "dotted pink 2vw" }}>
-      <div
-        className="form-box"
-        style={{ display: "flex", justifyContent: "center" }}
-      >
+      <div style={{ height: "100vh" }}>
         {photos ? (
-          <ThemeProvider theme={theme}>
-            <main>
-              <Box
-                sx={{
-                  bgcolor: "background.paper",
-                }}
+          <main>
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                fontFamily="Comic Sans Ms"
+                gutterBottom
               >
-                <Container maxWidth="sm">
-                  <Typography
-                    variant="h2"
-                    color="text.primary"
-                    fontFamily="Comic Sans Ms"
-                    gutterBottom
-                  >
-                    Student Photos
-                  </Typography>
-                  <Stack
-                    sx={{ pt: 4 }}
-                    direction="row"
-                    spacing={2}
-                    justifyContent="center"
-                  ></Stack>
-                </Container>
-              </Box>
-              <Container>
-                {/* End hero unit */}
+                Student Photos
+              </Typography>
+            </Container>
+            {/* <Container>
                 <Grid container spacing={4}>
                   {photos.map((card) => (
                     <Grid item key={card._id} xs={6} sm={6} md={4}>
                       <Card
                         sx={{
-                          height: "50%",
-                          display: "flex",
-                          flexDirection: "column",
-                          width: "200%",
+                          maxWidth:345
                         }}
                       >
                         <CardMedia
                           component="img"
                           image={card.imageUrl}
                           alt="random"
+                          height="140"
                         />
                         <CardContent sx={{ flexGrow: 1 }}>
                           <Typography gutterBottom variant="h5" component="h5">
@@ -198,14 +183,22 @@ const AddPhoto = () => {
                     </Grid>
                   ))}
                 </Grid>
-              </Container>
-            </main>
-            {/* Footer */}
-            <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
-              {/* <Copyright /> */}
-            </Box>
-            {/* End footer */}
-          </ThemeProvider>
+                
+              </Container> */}
+            <ImageList sx={{ width: 300, height: 250 }} style={{marginLeft:"3rem"}}>
+              {photos.map((card) => (
+                <ImageListItem key={card._id}>
+                  <img
+                    src={`${card.imageUrl}?w=248&fit=crop&auto=format`}
+                    srcSet={`${card.imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    alt={card.desc}
+                    loading="lazy"
+                  />
+                  <ImageListItemBar title={card.desc} />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          </main>
         ) : (
           <h3> No Photos to display </h3>
         )}
@@ -214,9 +207,11 @@ const AddPhoto = () => {
             border: "solid black .2vh",
             margin: "3rem",
             maxHeight: "35%",
-            width: "40%",
+            width: "20%",
+            marginLeft:"35rem"
           }}
         >
+          <div style={{padding:"2rem"}}>
           <TextField
             id="photoDesc"
             label="Description"
@@ -238,6 +233,7 @@ const AddPhoto = () => {
               height: "4rem",
               margin: "1rem",
               padding: ".5rem",
+              borderRadius:"1rem"
             }}
             onClick={(event) => {
               uploadImage(event);
@@ -245,6 +241,7 @@ const AddPhoto = () => {
           >
             Upload
           </button>
+          </div>
           {/* <Image cloudName= "dhcq7qcuc" publicId=""/> */}
         </div>
         <Modal
