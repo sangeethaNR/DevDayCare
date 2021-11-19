@@ -6,12 +6,8 @@ import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Box from "@mui/material/Box";
-
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { QUERY_ACTIVITY } from "../../utils/queries";
 

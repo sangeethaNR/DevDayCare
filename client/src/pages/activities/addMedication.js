@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
 import Box from "@mui/material/Box";
-
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { QUERY_MEDICATION } from "../../utils/queries";
 

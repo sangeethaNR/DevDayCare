@@ -1,6 +1,5 @@
 import * as React from 'react';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -10,9 +9,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import { MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { MenuItem, Select } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
  
 const cards = [1, 2, 3];

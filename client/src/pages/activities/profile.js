@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
@@ -12,7 +11,6 @@ import Typography from '@mui/material/Typography';
 const cards = [1, 2, 3];
 
 const theme = createTheme();
-//TODO: Pull down of info for each card? Append info 
 export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
@@ -38,7 +36,6 @@ export default function Profile() {
           </Container>
         </Box>
         <Container  maxWidth="md" >
-          {/* End hero unit */}
           <Grid container spacing={4}>
               <Grid item xs={12} sm={6} md={4}>
                 <Card
@@ -53,7 +50,6 @@ export default function Profile() {
                     image="https://i.pinimg.com/originals/de/f6/06/def6061b9679d31551040c506dfec8c8.jpg"
                     alt="child Photo"
                   />
-                      {/* TODO: Append Data */}
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2" noWrap="false" style={{fontSize:"1rem", fontFamily:"Comic Sans Ms"}}>
                       Jane Doe                 
