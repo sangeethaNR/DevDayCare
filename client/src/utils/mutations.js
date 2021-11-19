@@ -173,3 +173,15 @@ mutation addIncidentReport($student_id: String,$desc: String) {
   day
 }
 }`
+
+export const ADD_MEDICATION = gql`
+mutation addMedication($_id: String,$medName : String,$dosage: String) {
+  addMedication(_id:$_id,medName:$medName,dosage:$dosage)
+{
+  _id
+  medications{
+  dosage
+  medName
+  }
+}
+}`

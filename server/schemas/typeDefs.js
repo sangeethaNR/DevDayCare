@@ -273,6 +273,7 @@ const typeDefs = gql`
   addPhoto(student_id: String,imageUrl: String!,desc: String):Photo
   addNotes(student_id: String,noteDesc: String): Notes
  addIncidentReport(student_id: String,desc: String): IncidentReport
+ addMedication(_id: String,medName : String,dosage: String): Student
  
   }
 `;
