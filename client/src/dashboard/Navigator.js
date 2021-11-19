@@ -15,6 +15,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SchoolIcon from '@mui/icons-material/School';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
+import Auth from "../utils/auth";
 
 const item = {
   py: "2px",
@@ -77,8 +78,7 @@ export default function Navigator(props) {
           <ListItemIcon>
             <LogoutIcon />
           </ListItemIcon>
-          {/* Need link to log out */}
-          <ListItemText>Log Out</ListItemText>
+          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
         </ListItem>
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33" }}>
