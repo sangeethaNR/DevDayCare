@@ -28,7 +28,6 @@ import AddFood from "./pages/activities/addFood";
 import DailyActivitiesHistory from "./pages/activities/activityHistory";
 
 import UserProvider from "./components/AppContext";
-import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
 import Paperbase from "./dashboard";
 // import AddMedication from "./pages/activities/addMedication";
 
