@@ -114,6 +114,7 @@ const AddPhoto = () => {
 
       setSaveImage({ ...saveImage, imageUrl: response.data.url, desc: desc });
       console.log("url:" + saveImage);
+      console.log("desc" + desc)
       // saveImagetoDB();
     });
   };

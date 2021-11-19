@@ -80,8 +80,8 @@ export const ADD_PHOTO = gql`
 
 
 
-  mutation addPhoto($student_id: String, $imageUrl: String!) {
-    addPhoto(student_id: $student_id, imageUrl: $imageUrl) {
+  mutation addPhoto($student_id: String, $imageUrl: String!,$desc : String!) {
+    addPhoto(student_id: $student_id, imageUrl: $imageUrl,desc : $desc) {
       student_id
       imageUrl
       day
