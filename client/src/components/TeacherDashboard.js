@@ -41,7 +41,8 @@ function createData(student_name, food, activity, parents, assistants) {
   return { student_name, food, activity, parents, assistants };
 }
 
-function TeacherDashboard({ user_id }) {
+const  TeacherDashboard = ({ user_id }) => {
+  console.log('user_id:'+ user_id)
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const { data } = useQuery(GET_CLASS_INFO, {
