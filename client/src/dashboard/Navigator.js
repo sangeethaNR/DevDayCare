@@ -14,7 +14,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SchoolIcon from '@mui/icons-material/School';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
+import { Nav} from "react-bootstrap";
 import Auth from "../utils/auth";
 
 const item = {

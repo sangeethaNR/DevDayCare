@@ -51,6 +51,7 @@ function AddTeacher() {
     console.log(res);
     return res2;
   }
+  
   const [showPassword, setShow] = useState(false);
   const { classInfo, refetch } = React.useContext(AppContext);
   const [AddTeacher] = useMutation(CREATE_TEACHER);
@@ -88,8 +89,8 @@ function AddTeacher() {
 
   const handleChange = (e) => {
     let { name, value } = e.target;
-    if (value == "true") value = true;
-    if (value == "false") value = false;
+    if (value === "true") value = true;
+    if (value === "false") value = false;
     setFormValues({ ...formValues, [name]: value });
   };
 
@@ -215,4 +216,5 @@ function AddTeacher() {
     </React.Fragment>
   );
 }
+
 export default AddTeacher;
