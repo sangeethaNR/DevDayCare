@@ -116,13 +116,13 @@ const AddMedication = () => {
                   </Typography>
                 </Container>
               </Box>
-              <List
+              {/* <List
                 sx={{
                   width: "100%",
                   maxWidth: 360,
                   bgcolor: "lightyellow",
                 }}
-              >
+              > */}
                 {" "}
                 {StudentInfo.map((med, i) => (
                   <ListItem
@@ -135,7 +135,7 @@ const AddMedication = () => {
                   </ListItem>
                   // <Divider variant="inset" component="li" />
                 ))}
-              </List>
+              {/* </List> */}
             </main>
             {/* Footer */}
             <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">

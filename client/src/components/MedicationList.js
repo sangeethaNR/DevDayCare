@@ -7,24 +7,22 @@ const MedicationList = ({ medications = [] }) => {
 
   return (
     <>
-      <h3
+      {/* <h3
         className="p-5 display-inline-block"
         style={{ borderBottom: '1px dotted #1a1a1a' }}
       >
         Medication 
-      </h3>
+      </h3> */}
       <div className="flex-row my-4">
         {medications &&
           medications.map((medication) => (
             <div key={medication.medName} className="col-12 mb-3 pb-3">
               <div className="p-3 bg-dark text-light">
                 <h5 className="card-header">
-                  {medication.medName} Medicine{' '}
-                  <span style={{ fontSize: '0.825rem' }}>
-                    on {medication.dosage}
-                  </span>
+                  {medication.medName} 
+                 
                 </h5>
-                <p className="card-body">{medication.dosage}</p>
+                <p className="card-body">dosage {medication.dosage}</p>
               </div>
             </div>
           ))}
