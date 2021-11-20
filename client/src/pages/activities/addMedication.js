@@ -84,6 +84,8 @@ const AddMedication = () => {
         throw new Error("something went wrong!");
 
       }
+      setMedName("");
+      setDosage("")
       handleOpen();
     } catch (err) {
       console.error(err);

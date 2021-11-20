@@ -80,6 +80,7 @@ const Notes = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
+      setNoteDesc("")
       handleOpen();
     } catch (err) {
       console.error(err);
