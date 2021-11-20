@@ -63,7 +63,7 @@ function createData(
   return { student_name, profilePicture, activity, parents, assistants };
 }
 
-const TeacherDashboard = ({ user_id }) => {
+const TeacherDashboard = ({ user_id, currentClassIndex }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -96,9 +96,8 @@ const TeacherDashboard = ({ user_id }) => {
   };
 
   const createRowsData = () => {
-    if (classRooms[0] && classRooms[0].students.length) {
-      return classRooms[0].students.map((item) => {
-        console.log(item);
+    if (classRooms[currentClassIndex] && classRooms[currentClassIndex].students.length) {
+      return classRooms[currentClassIndex].students.map((item) => {
 
         return createData(
           `${item.name} ${item.lastName}`,
@@ -121,7 +120,8 @@ const TeacherDashboard = ({ user_id }) => {
   return (
     <React.Fragment>
       <Container style={{ margin: "2rem" }}>
-        {createRowsData()?.length && (
+        
+        {createRowsData()?.length ? (
           <Paper sx={{ width: "100%", overflow: "hidden" }}>
             <TableContainer sx={{ maxHeight: 440 }}>
               <Table stickyHeader aria-label="sticky table">
@@ -175,7 +175,7 @@ const TeacherDashboard = ({ user_id }) => {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </Paper>
-        )}
+        ): <h1>No student for this class </h1>}
         <Modal
           open={open}
           onClose={handleClose}

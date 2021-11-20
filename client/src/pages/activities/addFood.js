@@ -51,7 +51,7 @@ const AddFood = () => {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-  const { data } = useQuery(
+  const { data, refetch } = useQuery(
     QUERY_FOOD,
 
     {
@@ -67,7 +67,6 @@ const AddFood = () => {
 
   const handleClose = () => {
     setOpen(false);
-    window.location.reload(true);
   };
   const uploadFood = async (event) => {
     event.preventDefault();
@@ -84,6 +83,7 @@ const AddFood = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
+      refetch()
       handleOpen();
     } catch (err) {
       console.error(err);

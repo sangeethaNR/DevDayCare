@@ -51,9 +51,9 @@ const Incidents = () => {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-  const { data } = useQuery(
+  const { data, refetch } = useQuery(
     QUERY_INCIDENTREPORT,
-
+    
     {
       variables: { student_id: `${itemId}` },
     }
@@ -67,7 +67,7 @@ const Incidents = () => {
 
   const handleClose = () => {
     setOpen(false);
-    window.location.reload(true);
+    // window.location.reload(true);
   };
   const uploadIR = async (event) => {
     event.preventDefault();
@@ -80,6 +80,7 @@ const Incidents = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
+      refetch()
       handleOpen();
     } catch (err) {
       console.error(err);

@@ -56,7 +56,7 @@ const DailyActivities = () => {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-  const { data } = useQuery(
+  const { data, refetch } = useQuery(
     QUERY_ACTIVITY,
 
     {
@@ -72,7 +72,7 @@ const DailyActivities = () => {
 
   const handleClose = () => {
     setOpen(false);
-    window.location.reload(true);
+    // window.location.reload(true);
   };
   const uploadActivity = async (event) => {
     event.preventDefault();
@@ -90,6 +90,7 @@ const DailyActivities = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
+      refetch()
       handleOpen();
     } catch (err) {
       console.error(err);
