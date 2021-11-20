@@ -93,7 +93,7 @@ const AddPhoto = () => {
     formData.append("upload_preset", "vpdvr4v6");
     Axios.post(
       "https://api.cloudinary.com/v1_1/dhcq7qcuc/image/upload",
-      formData
+      formData,{secure:true}
     ).then((response) => {
       console.log("response.data.url:" + response.data.url);
 
