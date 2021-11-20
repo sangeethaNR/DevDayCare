@@ -80,6 +80,7 @@ const Incidents = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
+      setDesc("")
       refetch()
       handleOpen();
     } catch (err) {

@@ -83,6 +83,8 @@ const AddFood = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
+      setMealDesc("")
+      setMealSession("")
       refetch()
       handleOpen();
     } catch (err) {
