@@ -65,72 +65,95 @@ export const GET_CLASS_INFO = gql`
 `;
 
 export const QUERY_PHOTOS = gql`
-query getPhotos($student_id:String){
-  getPhotos(student_id : $student_id){
-    _id
-    student_id
-    imageUrl
-    day
-    desc
+  query getPhotos($student_id: String) {
+    getPhotos(student_id: $student_id) {
+      _id
+      student_id
+      imageUrl
+      day
+      desc
+    }
   }
-}
 `;
 
 export const QUERY_ACTIVITY = gql`
-query getActivities($student_id:String){
-  getActivities(student_id : $student_id){
-    _id
-    student_id
-    day
-    desc
-    activityType
+  query getActivities($student_id: String) {
+    getActivities(student_id: $student_id) {
+      _id
+      student_id
+      day
+      desc
+      activityType
+    }
   }
-}
 `;
 
 export const QUERY_FOOD = gql`
-query getFood($student_id:String!){
-  getFood(student_id : $student_id){
-    _id
-    student_id
-    mealSession
-    day
-    mealDesc
+  query getFood($student_id: String!) {
+    getFood(student_id: $student_id) {
+      _id
+      student_id
+      mealSession
+      day
+      mealDesc
+    }
   }
-}
 `;
 
-
 export const QUERY_MEDICATION = gql`
-query getMedication($_id:String!){
-  getMedication(_id : $_id){
-   _id
-  
-   medications {
-      medName
-      dosage
-    }
-   
-  }
-}`;
-export const QUERY_NOTES = gql`
-query getNotes($student_id:String!){
-  getNotes(student_id : $student_id){
-    _id
-    student_id
- noteDesc
- day
-   
-  }
-}`;
-export const QUERY_INCIDENTREPORT = gql`
-query getIncidentReport($student_id:String){
-  getIncidentReport(student_id : $student_id){
-    _id
-    student_id
- desc
- day
-   
-  }
-}`;
+  query getMedication($_id: String!) {
+    getMedication(_id: $_id) {
+      _id
 
+      medications {
+        medName
+        dosage
+      }
+    }
+  }
+`;
+export const QUERY_NOTES = gql`
+  query getNotes($student_id: String!) {
+    getNotes(student_id: $student_id) {
+      _id
+      student_id
+      noteDesc
+      day
+    }
+  }
+`;
+export const QUERY_INCIDENTREPORT = gql`
+  query getIncidentReport($student_id: String) {
+    getIncidentReport(student_id: $student_id) {
+      _id
+      student_id
+      desc
+      day
+    }
+  }
+`;
+
+export const QUERY_STUDENT = gql`
+  query getStudentProfile($id: String!) {
+    getStudentProfile(id: $id) {
+      _id
+      dateOfBirth
+      isPottyTrained
+      name
+      lastName
+      middleName
+      parents {
+        parentName
+        relation
+        phoneNo
+        address
+      }
+      emergencyContact {
+        phoneNo
+        contactPerson
+        relationship
+      }
+      allergy
+    }
+  }
+`;

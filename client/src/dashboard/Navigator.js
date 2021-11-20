@@ -34,6 +34,7 @@ const itemCategory = {
 
 export default function Navigator(props) {
   const { ...other } = props;
+  const { setCurrentClassIndex, currentClassIndex } = props
   const { classInfo } = React.useContext(AppContext);
   const categories = [
     {
@@ -42,7 +43,6 @@ export default function Navigator(props) {
         {
           id: <NavLink to="/activities/:itemId">Activities</NavLink>,
           icon: <DirectionsRunIcon />,
-          active: true,
         },
         {
           id: <NavLink to="/addClassroom">Add Class</NavLink>,
@@ -56,9 +56,10 @@ export default function Navigator(props) {
     },
     {
       id: "Classes",
-      children: classInfo.map((i) => ({
+      children: classInfo.map((i, index) => ({
         id: i.className,
         icon: <SchoolIcon />,
+        active: currentClassIndex === index && true
       })),
     },
   ];
@@ -85,9 +86,9 @@ export default function Navigator(props) {
             <ListItem sx={{ py: 2, px: 3 }}>
               <ListItemText sx={{ color: "#fff" }}>{id}</ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
+            {children.map(({ id: childId, icon, active }, index) => (
               <ListItem disablePadding key={childId}>
-                <ListItemButton selected={active} sx={item}>
+                <ListItemButton selected={active} sx={item} onClick={() => setCurrentClassIndex(index)}>
                   <ListItemIcon>{icon}</ListItemIcon>
                   <ListItemText>{childId}</ListItemText>
                 </ListItemButton>

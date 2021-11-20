@@ -170,10 +170,12 @@ const drawerWidth = 256;
 export default function Paperbase() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
+  const [currentClassIndex, setCurrentClassIndex] = React.useState(0);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -189,19 +191,24 @@ export default function Paperbase() {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+              setCurrentClassIndex={setCurrentClassIndex}
+              currentClassIndex={currentClassIndex}
             />
           )}
 
           <Navigator
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: 'block', xs: 'none' } }}
+             autoComplete="new-password"
+             setCurrentClassIndex={setCurrentClassIndex}
+             currentClassIndex={currentClassIndex}
           />
         </Box>
         <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
             {/* <Content /> */}
-            <TeacherDashboardPage />
+            <TeacherDashboardPage currentClassIndex={currentClassIndex} />
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
             <Copyright />

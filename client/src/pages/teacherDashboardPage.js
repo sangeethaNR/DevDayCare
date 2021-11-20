@@ -6,7 +6,7 @@ import Auth from "../utils/auth";
 import TeacherDashboard from "../components/TeacherDashboard";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 
-function TeacherDashboardPage() {
+function TeacherDashboardPage({currentClassIndex}) {
   const user_id = Auth.getProfile()?.data._id;
   const { data } = useQuery(GET_TEACHER_PROFILE, {
     variables: {
@@ -18,7 +18,7 @@ function TeacherDashboardPage() {
     <React.Fragment>
       <div style={{ border: "dotted pink 2vw", height: "100vh", padding:'2rem' }}>
         {userDetails.is_active ? (
-          <TeacherDashboard user_id={user_id}/>
+          <TeacherDashboard user_id={user_id} currentClassIndex={currentClassIndex}/>
         ) : (
           <h1>Your profile is inactive waiting for activation</h1>
         )}

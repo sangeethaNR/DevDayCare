@@ -69,7 +69,7 @@ function App() {
               <Route exact path="/addClassroom" component={AddClassroom} />
               <Route exact path="/addTeacher" component={AddTeacher} />
               <Route exact path="/activities/:itemId" component={Activities} />
-              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/profile/:id" component={Profile} />
               <Route exact path="/photos/:itemId" component={Photos} />
               <Route exact path="/addPhotos/:itemId" component={AddPhoto} />
               <Route

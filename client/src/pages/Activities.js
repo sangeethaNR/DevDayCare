@@ -16,7 +16,7 @@ function Activities() {
     <div style={{ border: "dotted pink 2vw", height: "100vh", padding:'2rem', height:"140vh"}}>
       <header style={{display:'flex', flexDirection:"row", justifyContent:"center", marginTop:"2rem", fontFamily:"Comic Sans MS"}}>
         <h1>Activities Page</h1>
-        <Link as={Link} to="/profile" style={{textDecoration:"none", margin:"1rem", border:"solid black .1vw", padding:".25rem", borderRadius:"1rem", backgroundColor:"lightblue", color:"black"}}>
+        <Link as={Link} to={`/profile/${itemId}`} style={{textDecoration:"none", margin:"1rem", border:"solid black .1vw", padding:".25rem", borderRadius:"1rem", backgroundColor:"lightblue", color:"black"}}>
           View Profile here
         </Link>
       </header>
