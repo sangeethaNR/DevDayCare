@@ -38,6 +38,15 @@ SO THAT I can easily know reference specific details about the child as well as 
 ## Usage
 
 Blossom Babies is an application that allows your daycare to track its students and teachers with ease. The admin will activate teacher accounts upon hire. The teacher will gather data on the daily activities of each student and other pertinent information, such as medical information and emergency contact information.
+For Demo,
+Use 
+Admin Portal (credentials) 
+Email:admin@dev.com
+Password: password01
+Teacher Portal (credentials)
+Email: gio@email.com
+Password : password123
+
 
 ## License
 
