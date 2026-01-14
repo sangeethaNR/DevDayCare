@@ -44,8 +44,8 @@ Blossom Babies is an application that allows your daycare to track its students 
 Email :    admin@dev.com <br>
 Password: password01 <br>
 <b>Teacher Portal (credentials) </b><br>
-Email: gio@email.com <br>
-Password : password123
+Email: test@test.com <br>
+Password : test123
 
 
 ## License
